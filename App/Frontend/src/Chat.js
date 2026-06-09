@@ -1,12 +1,11 @@
 import "../style.css";
-function chat(){
 
+function Chat() {
     return (
         <div>
             <h2>Formulario</h2>
-        </div>
-        
+        </div>    
     );
 }
 
-export default chat;
+export default Chat;
