@@ -3,8 +3,8 @@ body {
 }
 
 .contenedor {
-    background-color:  black;
-    width: 500px;
+    background-color:  white;
+    width: 50px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
