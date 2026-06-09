@@ -1,7 +1,12 @@
 import "../style.css";
-return (
-    <div>
-        <h2>Formulario</h2>
-    </div>
-    
-);
+function chat(){
+
+    return (
+        <div>
+            <h2>Formulario</h2>
+        </div>
+        
+    );
+}
+
+export default chat;
