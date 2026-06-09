@@ -1,3 +1,9 @@
 body {
     background-color: #71769A;
 }
+
+.mi-frame {
+    width: 50%;
+    height: 300px;
+    border: 1px solid #ccc;
+}
