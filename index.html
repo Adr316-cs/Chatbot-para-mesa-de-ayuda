@@ -6,13 +6,6 @@
         <link rel="stylesheet" href="App/Frontend/src/index.css">
     </head>
     <body>
-        <div id="resultado"></div>
-        <script>
-            fetch('/contenido')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('resultado').innerHTML = html;
-            });
-        </script>
+        <py-script src="/App/Frontend/src/app.py"></py-script>
     </body>
 </html>
