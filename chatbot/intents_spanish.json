@@ -1,0 +1,49 @@
+{
+    "intents": [
+        {
+        "tag": "saludo",
+        "patterns": ["Hola", "¿Cómo estás?", "Buenos días", "Buenas tardes"],
+        "responses": ["¡Hola! ¿En qué puedo ayudarte?", "¡Hola! ¿Cómo puedo asistirte?", "Hola ¿en que te puedo apoyar?"]
+        },
+        {
+        "tag": "despedida",
+        "patterns": ["Adiós", "Hasta luego", "Nos vemos", "Bye"],
+        "responses": ["¡Adiós! Que tengas un buen día.", "¡Hasta luego! Cuídate.", "Bye"]
+        },
+        {
+        "tag": "agradecimiento",
+        "patterns": ["Gracias", "Muchas gracias", "Te lo agradezco"],
+        "responses": ["¡De nada! Estoy aquí para ayudarte.", "¡No hay de qué!", "¡Con gusto!", "De nada"]
+        },
+        {
+        "tag": "fallback",
+        "patterns": [],
+        "responses":["¡No entiendo! ¿Podrías reformular tu pregunta o consulta?","No comprendo lo que dices, ¿podrías explicarlo de otra manera?","Lo siento, no puedo ayudarte con eso. ¿Podrías darme más detalles o hacer otra pregunta?"]
+        },
+        {
+        "tag": "cedula catastral",
+        "patterns": ["cedula unica catastral", "obtener cedula unica catastral", "como obtener la cedula unica catastral"],
+        "responses":["Para obtener la cédula única catastral debes realizar lo siguiente: \n 1. Ingresa al módulo de Trámites y Servicios,\n 2. Selecciona el municipio donde se encuentra el predio,\n 3. Selecciona la opción de Emisión de Cédula Única Catastral"]
+        },
+        {
+        "tag": "division de predios",
+        "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
+        "responses": [""]
+        },
+        {
+        "tag": "fusion de predios",
+        "patterns": ["fusion de predios"],
+        "responses":[]
+        },
+        {
+        "tag": "traslado de dominio",
+        "patterns": ["traslado de dominio", "como trasladar un predio", "tramite de traslado de dominio"],
+        "responses":[]
+        },
+        {
+        "tag": "actualizacion de predios",
+        "patterns": ["actualizacion de predios", "como actualizar un predio", "tramite de actualizacion de predios"],
+        "responses":[]
+        }
+    ]
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot MAI</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f0f0f0; margin: 0; }
+    .header {
+      background: #05004A;
+      color: white;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .header img {
+      width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;
+    }
+    .header h1 {
+      font-size: 20px;
+      margin: 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .chat-container { 
+      max-width: 500px; 
+      margin: 20px auto; 
+      background: white; 
+      border-radius: 10px; 
+      padding: 15px; 
+      height: 500px; 
+      overflow-y: auto; 
+    }
+    .bubble { 
+      display: block;
+      padding: 10px 15px; 
+      border-radius: 15px; 
+      margin: 10px; 
+      max-width: 50%; 
+      width: fit-content; 
+      word-wrap: break-word; 
+      animation: fadeInUp 0.4s ease;
+    }
+    .user { background: #05004A; color: white; margin-left: auto; }
+    .bot { background: #AAAACA; color: #1a1a1a; margin-right: auto; }
+    .timestamp { font-size: 11px; color: #666; margin-top: 3px; text-align: right; }
+
+    .input-container { display: flex; max-width: 500px; margin: 10px auto; }
+    .input-container input { flex: 1; padding: 10px; border-radius: 20px; border: 1px solid #ccc; }
+    .input-container button { background: #05004A; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; margin-left: 10px; cursor: pointer; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="logo">
+    <h1>Chatbot MAI</h1>
+  </div>
+
+  <div class="chat-container" id="chat"></div>
+
+  <div class="input-container">
+    <input id="input" placeholder="Escribe un mensaje...">
+    <button onclick="send()">➤</button>
+  </div>
+
+  <script>
+    async function send() {
+      let msg = document.getElementById("input").value;
+      if (!msg) return;
+      addMessage(msg, "user");
+      document.getElementById("input").value = "";
+
+      let res = await fetch("/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message: msg})
+      });
+      let data = await res.json();
+      addMessage(data.response, "bot");
+    }
+
+    function addMessage(text, role) {
+      let chat = document.getElementById("chat");
+      let bubble = document.createElement("div");
+      bubble.className = "bubble " + role;
+      bubble.innerHTML = text + `<div class="timestamp">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>`;
+      chat.appendChild(bubble);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    // Mensaje de bienvenida al cargar la página
+    window.onload = function() {
+      addMessage("¡Hola! Soy Chatbot MAI. ¿En qué puedo ayudarte hoy?", "bot");
+    };
+
+    // Enviar mensaje al presionar Enter
+    document.getElementById("input").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault(); // evita salto de línea
+        send();
+      }
+    });
+  </script>
+</body>
+</html>
