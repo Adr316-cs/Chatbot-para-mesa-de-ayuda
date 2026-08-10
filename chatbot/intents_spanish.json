@@ -67,28 +67,66 @@
         "tag": "emision_padron_unico_catastral_pasos",
         "patterns": ["cuales son los pasos iniciales para ingresar una solicitud de emision del padron unico catastral",
                      "como realizar una emision de padron unico catastral"],
-        "responses": ["1. Ingresar al módulo de 'Trámites & Servicios'.\n 2. "]
+        "responses": ["1. Ingresar al módulo de 'Trámites & Servicios'.\n 2. Seleccionar el municipio correspondiente.\n 3. Seleccionar la opción 'Emisión del Padrón Único Catastral'.\n 4. Agregar los datos del promovente.\n 5. Seleccionar el municipio del cual se va a hacer la extracción del Padrón Catastral.\n 6. Crear el expediente con documentos recibidos.\n 7. Crear observaciones, imprimir 'Acuse de Recibo' y turnar el trámite."]
         },
         {
-        "tag": "division de predios",
-        "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
+        "tag": "emision_padron_unico_catastral_información_incorrecta",
+        "patterns": ["a que seccion redirige el sistema si la informacion es incorrecta en la fase de requisitos completos"],
+        "responses": ["El sistema redirige el trámite a la sección de 'Ingreso de solicitud para subsanar la documentación faltante', o bien se rechaza el trámite por falta de información."]
+        },
+        {
+        "tag": "emision_padron_unico_catastral_subsanacion_requisitos",
+        "patterns": ["que accion realiza el promovente cuando el padron unico catastral entra en subsanacion de requisitos"],
+        "responses": ["El promovente debe entregar la documentación faltante para revalidar que la información esté correcta y dentro de vigencia."]
+        },
+        {
+        "tag": "emision_padron_unico_catastral_documentoGenerado",
+        "patterns": ["que producto o documento tecnico se genera al aprobar la respuesta de solicitud del padron unico catastral"],
+        "responses": ["Al validar que la información es correcta, se emiten comentarios, se genera el archivo correspondiente, se imprime el 'Acuse de Entrega' y se turna el trámite."]
+        },
+        {
+        "tag": "emision_padron_unico_catastral_escaneosAdjuntos",
+        "patterns": ["que documentos deben adjuntarse escaneados al finalizar el servicio de padron unico catastral"],
+        "responses": ["Se debe escanear y subir al expediente el 'Acuse de entrega firmado y sellado'."]
+        },
+        {
+        "tag": "emision_padron_unico_catastral_parametroAdicional",
+        "patterns": ["que parametro adicional debe seleccionar el usuario al registrar un nuevo tramite de padron unico que no se pide en la cedula unica"],
+        "responses": ["Se debe seleccionar específicamente el municipio del cual se va a hacer la extracción del Padrón Catastral."]
+        },
+        {
+        "tag": "emision_padron_unico_catastral_expediente_informacionIncorrecta",
+        "patterns": ["si un expediente de padron unico presenta informacion incorrecta en requisitos completos a que seccion del sistema se redirige la solicitud"],
+        "responses": ["Se redirige a la sección de 'ingresos de solicitud' para subsanar la documentación faltante."]
+        },
+        {
+        "tag": "emision_padron_unico_catastral_finalizadoRechazo",
+        "patterns": ["bajo que condicion el sistema marca como finalizado con 'rechazo' el tramite de padron unico catastral"],
+        "responses": ["Cuando el trámite no es subsanado se rechaza formalmente por falta de información."]
+        },
+        {
+        "tag": "emision_padron_unico_catastral_archivoGenerar",
+        "patterns": ["en la respuesta de solicitud del padron unico que tipo de archivo digital genera automaticamente el sistema al validar los datos"],
+        "responses": ["Genera un archivo en formato"]
+        },
+        {
+        "tag": "emision_padron_unico_catastral_",
+        "patterns": ["En la Respuesta de Solicitud del Padrón Único, ¿qué tipo de archivo digital genera automáticamente el sistema al validar los datos"],
         "responses": [""]
         },
         {
-        "tag": "division de predios",
+        "tag": "emision_padron_unico_catastral_",
         "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
         "responses": [""]
         },
-        {
-        "tag": "division de predios",
-        "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
-        "responses": [""]
-        },
-        {
-        "tag": "division de predios",
-        "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
-        "responses": [""]
-        },
+
+
+
+
+
+
+
+
 
 
         {
