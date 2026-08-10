@@ -21,10 +21,76 @@
         "responses":["¡No entiendo! ¿Podrías reformular tu pregunta o consulta?","No comprendo lo que dices, ¿podrías explicarlo de otra manera?","Lo siento, no puedo ayudarte con eso. ¿Podrías darme más detalles o hacer otra pregunta?"]
         },
         {
-        "tag": "cedula catastral",
-        "patterns": ["cedula unica catastral", "obtener cedula unica catastral", "como obtener la cedula unica catastral"],
-        "responses":["Para obtener la cédula única catastral debes realizar lo siguiente: \n 1. Ingresa al módulo de Trámites y Servicios,\n 2. Selecciona el municipio donde se encuentra el predio,\n 3. Selecciona la opción de Emisión de Cédula Única Catastral"]
+        "tag": "cedula_catastral_pasos",
+        "patterns": ["cuales son los pasos para registrar un nuevo tramite de emision de cedula unica catastral",
+                     "como realizar la cedula catastral"],
+        "responses":["1. Ingresar al módulo de Trámites & Servicios.\n 2. Seleccionar el municipio correspondiente.\n 3. Seleccionar la opción EMISIÓN DE CÉDULA ÚNICA CATASTRAL.\n 4. Agregar los datos del promovente (se puede realizar la búsqueda o agregar uno nuevo).\n 5. Agregar los datos del predio.\n 6. Crear el expediente con los documentos recibidos del promovente.\n 7. Crear observaciones. \n 8. Imprimir el Acuse de Recibo.\n Turnar el servicio."]
         },
+        {
+        "tag": "cedula_catastral_requisitos",
+        "patterns": ["que sucede durante la etapa de requisitos completos servicios si la informacion del promovente es correcta"],
+        "responses":["Se validan los datos (correctos y dentro de vigencia). Al confirmar que la información es correcta, se emiten comentarios y se turna el servicio para continuar con el flujo."]
+        },
+        {
+        "tag": "cedula_catastral_informacion_incorrecta",
+        "patterns": ["cual es el procedimiento si la informacion o documentacion presentada en Requisitos Completos Servicios es incorrecta"],
+        "responses":["1. Se selecciona ''no'' en la opción ''¿Los datos son correctos?''.\n 2. Se emiten comentarios detallando la falta.\n 3. Se turna el servicio.\n 4. El promovente entrega la documentación faltante o bien se imprime el documento de rechazo."]
+        },
+        {
+        "tag": "cedula_catastral_validacion_correcta_incorrecta",
+        "patterns": ["en el subproceso de respuesta servicios que ocurre si la informacion es validada correctamente o si es incorrecta",
+                     "que paso realiza el sistema si la informacion es declarada incorrecta en la fase de respuesta servicios"],
+        "responses":["1. Si es correcta: Se emiten comentarios, se imprime el acuse de Entrega, se turna el servicio y finaliza.\n 2. Si es incorrecta: Se regresa el tramite a campo para su correccion, donde el personal corrige el error cometido y se vuelve a validar.",
+                     "El sistema no cierra el trámite, sino que se regresa el expediente a campo para que el personal corrija el error cometido."]
+        },
+        {
+        "tag": "cedula_catastral_escaneo_documentos",
+        "patterns": ["como se concluye la etapa de escaneo de documentos en la emision de cedula unica catastral"],
+        "responses":["Se firma el Acuse de Entrega, se escanea el acuse firmado y sellado, se emiten comentarios, se turna el tramite y finaliza el proceso."]
+        },
+        {
+        "tag": "cedula_catastral_validacion_requisitosIncompletos",
+        "patterns": ["en que opcion del sistema se debe hacer clic si la informacion es incorrecta durante la validacion de requisitos completos"],
+        "responses":["Se debe seleccionar que 'no' en la opción del sistema con la etiqueta '¿Los datos son correctos?'."]
+        },
+        {
+        "tag": "cedula_catastral_observaciones",
+        "patterns": ["durante el flujo de nuevo tramite que accion sigue inmediatamente despues de crear las observaciones"],
+        "responses":["El operador debe imprimir el Acuse de Recibo antes de proceder a turnar el servicio."]
+        },
+        {
+        "tag": "cedula_catastral_concluirEscaneo",
+        "patterns": ["que documento fisico o escaneado concluye definitivamente la etapa de escaneo de documentos en este servicio"],
+        "responses":["El 'Acuse de entrega firmado y sellado'."]
+        },
+        {
+        "tag": "emision_padron_unico_catastral_pasos",
+        "patterns": ["cuales son los pasos iniciales para ingresar una solicitud de emision del padron unico catastral",
+                     "como realizar una emision de padron unico catastral"],
+        "responses": ["1. Ingresar al módulo de 'Trámites & Servicios'.\n 2. "]
+        },
+        {
+        "tag": "division de predios",
+        "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
+        "responses": [""]
+        },
+        {
+        "tag": "division de predios",
+        "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
+        "responses": [""]
+        },
+        {
+        "tag": "division de predios",
+        "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
+        "responses": [""]
+        },
+        {
+        "tag": "division de predios",
+        "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
+        "responses": [""]
+        },
+
+
         {
         "tag": "division de predios",
         "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
@@ -38,6 +104,11 @@
         {
         "tag": "traslado de dominio",
         "patterns": ["traslado de dominio", "como trasladar un predio", "tramite de traslado de dominio"],
+        "responses":[]
+        },
+        {
+        "tag": "actualizacion de predios",
+        "patterns": ["actualizacion de predios", "como actualizar un predio", "tramite de actualizacion de predios"],
         "responses":[]
         },
         {
