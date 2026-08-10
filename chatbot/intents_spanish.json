@@ -110,14 +110,45 @@
         "responses": ["Genera un archivo en formato"]
         },
         {
-        "tag": "emision_padron_unico_catastral_",
-        "patterns": ["En la Respuesta de Solicitud del Padrón Único, ¿qué tipo de archivo digital genera automáticamente el sistema al validar los datos"],
-        "responses": [""]
+        "tag": "emision_padron_unico_catastral_promoventes",
+        "patterns": ["se pueden buscar promoventes registrados previamente para este servicio o debe crearse uno desde cero"],
+        "responses": ["Se puede hacer la búsqueda del promovente existente o agregar uno nuevo según la nota técnica del flujo"]
         },
         {
-        "tag": "emision_padron_unico_catastral_",
-        "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
-        "responses": [""]
+        "tag": "constancia_inscripcion_pasos",
+        "patterns": ["Como se inicia un nuevo tramite para obtener una constancia de inscripcion",
+                     "como se hace una constancia de inscripcion"],
+        "responses": ["Se ingresa al módulo de 'Trámites & Servicios', se selecciona el municipio, se elige la opción de constancia de inscripción, se buscan/ingresan los datos del promovente y del predio, se crea el expediente, se emiten observaciones, se imprime el acuse y se turna."]
+        },
+        {
+        "tag": "constancia_inscripcion_documentosInvalidos",
+        "patterns": ["en la etapa de requisitos completos, que paso sigue si la documentacion no cumple las validaciones"],
+        "responses": ["Se registran los hallazgos u observaciones de incorrección y se modifica/subsana la información devuelta antes de volver a turnar el servicio."]
+        },
+        {
+        "tag": "constancia_inscripcion_validaInformacion",
+        "patterns": ["como se valida la informacion en la fase de respuesta de solicitud"],
+        "responses": ["Se revisan los datos e información cargada; si es correcta, se emiten observaciones, se imprimen los acuses de entrega y se autoriza la constancia para turnar el trámite."]
+        },
+        {
+        "tag": "constancia_inscripcion_imprecisiones",
+        "patterns": ["que hace el usuario operativo si se detectan imprecisiones durante la elaboracion de la respuesta de solicitud"],
+        "responses": ["Se aplican las modificaciones/correcciones a los datos antes de emitir la documentación definitiva."]
+        },
+        {
+        "tag": "constancia_inscripcion_aunteticacion",
+        "patterns": ["durante el registro de un nuevo tramite para constancia de inscripcion, que credenciales o pasos de autenticacion se necesitan"],
+        "responses": ["Ingresamos las credenciales tras elegir el municipio."]
+        },
+        {
+        "tag": "constancia_inscripcion_busquedaPropietario",
+        "patterns": ["como maneja el sistema la busqueda del propietario si este no se encuentra en la base de datos catastral"],
+        "responses": ["Se marca la casilla o estado 'Propietario no' ante la inexistencia del mismo y se procede a escribir el nombre del propietario manualmente."]
+        },
+        {
+        "tag": "constancia_inscripcion_",
+        "patterns": ["que boton de la interfaz debe presionarse dentro de la ventana de Constancia de inscripcion para iniciar el llenado"],
+        "responses": ["Se debe seleccionar el botón con el texto 'Nuevo Trámite'."]
         },
 
 
@@ -130,29 +161,9 @@
 
 
         {
-        "tag": "division de predios",
-        "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
-        "responses": [""]
-        },
-        {
-        "tag": "fusion de predios",
-        "patterns": ["fusion de predios"],
-        "responses":[]
-        },
-        {
-        "tag": "traslado de dominio",
-        "patterns": ["traslado de dominio", "como trasladar un predio", "tramite de traslado de dominio"],
-        "responses":[]
-        },
-        {
-        "tag": "actualizacion de predios",
-        "patterns": ["actualizacion de predios", "como actualizar un predio", "tramite de actualizacion de predios"],
-        "responses":[]
-        },
-        {
-        "tag": "actualizacion de predios",
-        "patterns": ["actualizacion de predios", "como actualizar un predio", "tramite de actualizacion de predios"],
-        "responses":[]
+        "tag": "constancia_inscripcion_documentosInvalidos",
+        "patterns": ["en la etapa de requisitos completos, que paso sigue si la documentacion no cumple las validaciones"],
+        "responses": ["Se registran los hallazgos u observaciones de incorrección y se modifica/subsana la información devuelta antes de volver a turnar el servicio."]
         }
     ]
 }
