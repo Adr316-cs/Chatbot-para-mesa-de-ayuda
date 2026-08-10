@@ -146,16 +146,70 @@
         "responses": ["Se marca la casilla o estado 'Propietario no' ante la inexistencia del mismo y se procede a escribir el nombre del propietario manualmente."]
         },
         {
-        "tag": "constancia_inscripcion_",
+        "tag": "constancia_inscripcion_botonInterfaz",
         "patterns": ["que boton de la interfaz debe presionarse dentro de la ventana de Constancia de inscripcion para iniciar el llenado"],
         "responses": ["Se debe seleccionar el botón con el texto 'Nuevo Trámite'."]
         },
-
-
-
-
-
-
+        {
+        "tag": "constancia_inscripcion_rutaSistema",
+        "patterns": ["en la etapa de requisitos completos de este servicio, cual es la ruta que sigue el sistema si se selecciona la opcion no"],
+        "responses": ["Se regresa el servicio a la bandeja y se modifican los datos erróneos antes de volver a validar."]
+        },
+        {
+        "tag": "constancia_inscripcion_serviciosRechazo",
+        "patterns": ["en que se difiere el flujo de 'Respuesta de Solicitud' de la constancia de inscripcion respecto a los servicios con rechazo definitivo"],
+        "responses": ["En caso de datos erróneos no se rechaza el expediente, sino que regresa el servicio a la bandeja para modificar los datos e iterar el ciclo de corrección."]
+        },
+        {
+        "tag": "Certificacion_documentos_pasos",
+        "patterns": ["que datos e informacion se requieren al registrar la solicitud de certificacion de documentos"],
+        "responses": ["1. Ingresar al módulo de Trámites y Servicios.\n 2. Seleccionar el trámite correspondiente.\n 3. Ingresar datos del promovente.\n 4. Buscar el predio a certificar.\n 5. Buscar al propietario.\n 6. Cargar los requisitos al expediente, agregar observaciones, imprimir acuse de entrega y turnar."]
+        },
+        {
+        "tag": "Certificacion_documentos_gestionRequisitos",
+        "patterns": ["como se gestiona la revision de requisitos completos en certificacion de documentos"],
+        "responses": ["Se verifica la legibilidad y validez de los documentos. Si están completos se avala la solicitud; si no, se notifican las observaciones para su subsanación."]
+        },
+        {
+        "tag": "Certificacion_documentos_busquedaPredio",
+        "patterns": ["que rol cumple la busqueda de predio y propietario en el expediente de certificacion"],
+        "responses": ["Asegura la vinculación exacta entre el documento base que se va a certificar y el registro catastral vigente."]
+        },
+        {
+        "tag": "Certificacion_documentos_acuseEntrega",
+        "patterns": ["en que momento se imprime el acuse de entrega dentro del flujo de certificacion de documentos"],
+        "responses": ["Se imprime una vez que la solicitud ha sido procesada y aprobada en la fase de respuesta de trámite."]
+        },
+        {
+        "tag": "Certificacion_documentos_validacion",
+        "patterns": ["como se valida la conclusion del tramite en el sistema"],
+        "responses": ["Mediante la carga al expediente digital del comprobante o acuse de certificación firmado y sellado por la autoridad competente."]
+        },
+        {
+        "tag": "Certificacion_documentos_busquedasParalelas",
+        "patterns": ["en la pantalla de registro de certificacion de documentos cuales son las dos busquedas paralelas que se pueden efectuar para integrar el expediente"],
+        "responses": ["Se puede realizar la búsqueda del 'predio a certificar' o la búsqueda del 'propietario'."]
+        },
+        {
+        "tag": "Certificacion_documentos_accionPredio",
+        "patterns": ["que accion tecnica sigue inmediatamente despues de ubicar al predio o propietario en el sistema"],
+        "responses": ["Se procede a 'Cargar los requisitos al expediente'."]
+        },
+        {
+        "tag": "Certificacion_documentos_observacionManual",
+        "patterns": ["en que momento se agrega la observacion manual en el modulo antes de finalizar el ingreso del expediente"],
+        "responses": ["Justo después de cargar los requisitos y antes de imprimir el acuse de entrega."]
+        },
+        {
+        "tag": "Certificacion_documentos_accionOperativa",
+        "patterns": ["Cual es la ultima accion operativa que ejecuta el usuario antes de cambiar el estado a fin en la captura de este servicio"],
+        "responses": ["Hacer clic en la opción/icono 'Turnamos'."]
+        },
+        {
+        "tag": "Certificacion_documentos_",
+        "patterns": [""],
+        "responses": [""]
+        },
 
 
 
