@@ -16,296 +16,39 @@
         "responses": ["¡De nada! Estoy aquí para ayudarte.", "¡No hay de qué!", "¡Con gusto!", "De nada"]
         },
         {
-        "tag": "fallback",
-        "patterns": [],
-        "responses":["¡No entiendo! ¿Podrías reformular tu pregunta o consulta?","No comprendo lo que dices, ¿podrías explicarlo de otra manera?","Lo siento, no puedo ayudarte con eso. ¿Podrías darme más detalles o hacer otra pregunta?"]
+        "tag": "Entrar a la seccion de trámites y servicios",
+        "patterns": ["Como entrar a la sección de trámites y servicios", "Donde puedo encontrar la sección de trámites y servicios", "Quiero entrar a la sección de trámites y servicios", "Como puedo acceder a la sección de trámites y servicios"],
+        "responses":["Para entrar a la sección de trámites, debes entrar al módulo de Trámites y Servicios que se encuentra en el menu principal.\nUna vez dentro, selecciona el municipio donde se encuentra el predio y presiona en buscar"]
         },
         {
-        "tag": "cedula_catastral_pasos",
-        "patterns": ["cuales son los pasos para registrar un nuevo tramite de emision de cedula unica catastral",
-                     "como realizar la cedula catastral"],
-        "responses":["1. Ingresar al módulo de Trámites & Servicios.\n 2. Seleccionar el municipio correspondiente.\n 3. Seleccionar la opción EMISIÓN DE CÉDULA ÚNICA CATASTRAL.\n 4. Agregar los datos del promovente (se puede realizar la búsqueda o agregar uno nuevo).\n 5. Agregar los datos del predio.\n 6. Crear el expediente con los documentos recibidos del promovente.\n 7. Crear observaciones. \n 8. Imprimir el Acuse de Recibo.\n Turnar el servicio."]
+        "tag":"Busqueda de predios",
+        "patterns":["Como buscar un predio", "Donde puedo buscar un predio", "Quiero buscar un predio", "Como puedo buscar un predio"],
+        "responses":["Para buscar un predio debes:\nEntrar al módulo de Trámites y Servicios.\nEscribir el tramite del predio que deseas encontrar.\nPresionar en buscar.\nSeleccionar el municipio donde se encuentra el predio."] 
         },
         {
-        "tag": "cedula_catastral_requisitos",
-        "patterns": ["que sucede durante la etapa de requisitos completos servicios si la informacion del promovente es correcta"],
-        "responses":["Se validan los datos (correctos y dentro de vigencia). Al confirmar que la información es correcta, se emiten comentarios y se turna el servicio para continuar con el flujo."]
+        "tag": "cedula catastral",
+        "patterns": ["cedula unica catastral", "obtener cedula unica catastral", "como obtener la cedula unica catastral"],
+        "responses":["Para obtener la cédula única catastral debes realizar lo siguiente: \n 1. Ingresa al módulo de Trámites y Servicios,\n 2. Selecciona el municipio donde se encuentra el predio,\n 3. Selecciona la opción de Emisión de Cédula Única Catastral"]
         },
         {
-        "tag": "cedula_catastral_informacion_incorrecta",
-        "patterns": ["cual es el procedimiento si la informacion o documentacion presentada en Requisitos Completos Servicios es incorrecta"],
-        "responses":["1. Se selecciona ''no'' en la opción ''¿Los datos son correctos?''.\n 2. Se emiten comentarios detallando la falta.\n 3. Se turna el servicio.\n 4. El promovente entrega la documentación faltante o bien se imprime el documento de rechazo."]
-        },
-        {
-        "tag": "cedula_catastral_validacion_correcta_incorrecta",
-        "patterns": ["en el subproceso de respuesta servicios que ocurre si la informacion es validada correctamente o si es incorrecta",
-                     "que paso realiza el sistema si la informacion es declarada incorrecta en la fase de respuesta servicios"],
-        "responses":["1. Si es correcta: Se emiten comentarios, se imprime el acuse de Entrega, se turna el servicio y finaliza.\n 2. Si es incorrecta: Se regresa el tramite a campo para su correccion, donde el personal corrige el error cometido y se vuelve a validar.",
-                     "El sistema no cierra el trámite, sino que se regresa el expediente a campo para que el personal corrija el error cometido."]
-        },
-        {
-        "tag": "cedula_catastral_escaneo_documentos",
-        "patterns": ["como se concluye la etapa de escaneo de documentos en la emision de cedula unica catastral"],
-        "responses":["Se firma el Acuse de Entrega, se escanea el acuse firmado y sellado, se emiten comentarios, se turna el tramite y finaliza el proceso."]
-        },
-        {
-        "tag": "cedula_catastral_validacion_requisitosIncompletos",
-        "patterns": ["en que opcion del sistema se debe hacer clic si la informacion es incorrecta durante la validacion de requisitos completos"],
-        "responses":["Se debe seleccionar que 'no' en la opción del sistema con la etiqueta '¿Los datos son correctos?'."]
-        },
-        {
-        "tag": "cedula_catastral_observaciones",
-        "patterns": ["durante el flujo de nuevo tramite que accion sigue inmediatamente despues de crear las observaciones"],
-        "responses":["El operador debe imprimir el Acuse de Recibo antes de proceder a turnar el servicio."]
-        },
-        {
-        "tag": "cedula_catastral_concluirEscaneo",
-        "patterns": ["que documento fisico o escaneado concluye definitivamente la etapa de escaneo de documentos en este servicio"],
-        "responses":["El 'Acuse de entrega firmado y sellado'."]
-        },
-        {
-        "tag": "emision_padron_unico_catastral_pasos",
-        "patterns": ["cuales son los pasos iniciales para ingresar una solicitud de emision del padron unico catastral",
-                     "como realizar una emision de padron unico catastral"],
-        "responses": ["1. Ingresar al módulo de 'Trámites & Servicios'.\n 2. Seleccionar el municipio correspondiente.\n 3. Seleccionar la opción 'Emisión del Padrón Único Catastral'.\n 4. Agregar los datos del promovente.\n 5. Seleccionar el municipio del cual se va a hacer la extracción del Padrón Catastral.\n 6. Crear el expediente con documentos recibidos.\n 7. Crear observaciones, imprimir 'Acuse de Recibo' y turnar el trámite."]
-        },
-        {
-        "tag": "emision_padron_unico_catastral_información_incorrecta",
-        "patterns": ["a que seccion redirige el sistema si la informacion es incorrecta en la fase de requisitos completos"],
-        "responses": ["El sistema redirige el trámite a la sección de 'Ingreso de solicitud para subsanar la documentación faltante', o bien se rechaza el trámite por falta de información."]
-        },
-        {
-        "tag": "emision_padron_unico_catastral_subsanacion_requisitos",
-        "patterns": ["que accion realiza el promovente cuando el padron unico catastral entra en subsanacion de requisitos"],
-        "responses": ["El promovente debe entregar la documentación faltante para revalidar que la información esté correcta y dentro de vigencia."]
-        },
-        {
-        "tag": "emision_padron_unico_catastral_documentoGenerado",
-        "patterns": ["que producto o documento tecnico se genera al aprobar la respuesta de solicitud del padron unico catastral"],
-        "responses": ["Al validar que la información es correcta, se emiten comentarios, se genera el archivo correspondiente, se imprime el 'Acuse de Entrega' y se turna el trámite."]
-        },
-        {
-        "tag": "emision_padron_unico_catastral_escaneosAdjuntos",
-        "patterns": ["que documentos deben adjuntarse escaneados al finalizar el servicio de padron unico catastral"],
-        "responses": ["Se debe escanear y subir al expediente el 'Acuse de entrega firmado y sellado'."]
-        },
-        {
-        "tag": "emision_padron_unico_catastral_parametroAdicional",
-        "patterns": ["que parametro adicional debe seleccionar el usuario al registrar un nuevo tramite de padron unico que no se pide en la cedula unica"],
-        "responses": ["Se debe seleccionar específicamente el municipio del cual se va a hacer la extracción del Padrón Catastral."]
-        },
-        {
-        "tag": "emision_padron_unico_catastral_expediente_informacionIncorrecta",
-        "patterns": ["si un expediente de padron unico presenta informacion incorrecta en requisitos completos a que seccion del sistema se redirige la solicitud"],
-        "responses": ["Se redirige a la sección de 'ingresos de solicitud' para subsanar la documentación faltante."]
-        },
-        {
-        "tag": "emision_padron_unico_catastral_finalizadoRechazo",
-        "patterns": ["bajo que condicion el sistema marca como finalizado con 'rechazo' el tramite de padron unico catastral"],
-        "responses": ["Cuando el trámite no es subsanado se rechaza formalmente por falta de información."]
-        },
-        {
-        "tag": "emision_padron_unico_catastral_archivoGenerar",
-        "patterns": ["en la respuesta de solicitud del padron unico que tipo de archivo digital genera automaticamente el sistema al validar los datos"],
-        "responses": ["Genera un archivo en formato"]
-        },
-        {
-        "tag": "emision_padron_unico_catastral_promoventes",
-        "patterns": ["se pueden buscar promoventes registrados previamente para este servicio o debe crearse uno desde cero"],
-        "responses": ["Se puede hacer la búsqueda del promovente existente o agregar uno nuevo según la nota técnica del flujo"]
-        },
-        {
-        "tag": "constancia_inscripcion_pasos",
-        "patterns": ["Como se inicia un nuevo tramite para obtener una constancia de inscripcion",
-                     "como se hace una constancia de inscripcion"],
-        "responses": ["Se ingresa al módulo de 'Trámites & Servicios', se selecciona el municipio, se elige la opción de constancia de inscripción, se buscan/ingresan los datos del promovente y del predio, se crea el expediente, se emiten observaciones, se imprime el acuse y se turna."]
-        },
-        {
-        "tag": "constancia_inscripcion_documentosInvalidos",
-        "patterns": ["en la etapa de requisitos completos, que paso sigue si la documentacion no cumple las validaciones"],
-        "responses": ["Se registran los hallazgos u observaciones de incorrección y se modifica/subsana la información devuelta antes de volver a turnar el servicio."]
-        },
-        {
-        "tag": "constancia_inscripcion_validaInformacion",
-        "patterns": ["como se valida la informacion en la fase de respuesta de solicitud"],
-        "responses": ["Se revisan los datos e información cargada; si es correcta, se emiten observaciones, se imprimen los acuses de entrega y se autoriza la constancia para turnar el trámite."]
-        },
-        {
-        "tag": "constancia_inscripcion_imprecisiones",
-        "patterns": ["que hace el usuario operativo si se detectan imprecisiones durante la elaboracion de la respuesta de solicitud"],
-        "responses": ["Se aplican las modificaciones/correcciones a los datos antes de emitir la documentación definitiva."]
-        },
-        {
-        "tag": "constancia_inscripcion_aunteticacion",
-        "patterns": ["durante el registro de un nuevo tramite para constancia de inscripcion, que credenciales o pasos de autenticacion se necesitan"],
-        "responses": ["Ingresamos las credenciales tras elegir el municipio."]
-        },
-        {
-        "tag": "constancia_inscripcion_busquedaPropietario",
-        "patterns": ["como maneja el sistema la busqueda del propietario si este no se encuentra en la base de datos catastral"],
-        "responses": ["Se marca la casilla o estado 'Propietario no' ante la inexistencia del mismo y se procede a escribir el nombre del propietario manualmente."]
-        },
-        {
-        "tag": "constancia_inscripcion_botonInterfaz",
-        "patterns": ["que boton de la interfaz debe presionarse dentro de la ventana de Constancia de inscripcion para iniciar el llenado"],
-        "responses": ["Se debe seleccionar el botón con el texto 'Nuevo Trámite'."]
-        },
-        {
-        "tag": "constancia_inscripcion_rutaSistema",
-        "patterns": ["en la etapa de requisitos completos de este servicio, cual es la ruta que sigue el sistema si se selecciona la opcion no"],
-        "responses": ["Se regresa el servicio a la bandeja y se modifican los datos erróneos antes de volver a validar."]
-        },
-        {
-        "tag": "constancia_inscripcion_serviciosRechazo",
-        "patterns": ["en que se difiere el flujo de 'Respuesta de Solicitud' de la constancia de inscripcion respecto a los servicios con rechazo definitivo"],
-        "responses": ["En caso de datos erróneos no se rechaza el expediente, sino que regresa el servicio a la bandeja para modificar los datos e iterar el ciclo de corrección."]
-        },
-        {
-        "tag": "certificacion_documentos_pasos",
-        "patterns": ["que datos e informacion se requieren al registrar la solicitud de certificacion de documentos"],
-        "responses": ["1. Ingresar al módulo de Trámites y Servicios.\n 2. Seleccionar el trámite correspondiente.\n 3. Ingresar datos del promovente.\n 4. Buscar el predio a certificar.\n 5. Buscar al propietario.\n 6. Cargar los requisitos al expediente, agregar observaciones, imprimir acuse de entrega y turnar."]
-        },
-        {
-        "tag": "certificacion_documentos_gestionRequisitos",
-        "patterns": ["como se gestiona la revision de requisitos completos en certificacion de documentos"],
-        "responses": ["Se verifica la legibilidad y validez de los documentos. Si están completos se avala la solicitud; si no, se notifican las observaciones para su subsanación."]
-        },
-        {
-        "tag": "certificacion_documentos_busquedaPredio",
-        "patterns": ["que rol cumple la busqueda de predio y propietario en el expediente de certificacion"],
-        "responses": ["Asegura la vinculación exacta entre el documento base que se va a certificar y el registro catastral vigente."]
-        },
-        {
-        "tag": "certificacion_documentos_acuseEntrega",
-        "patterns": ["en que momento se imprime el acuse de entrega dentro del flujo de certificacion de documentos"],
-        "responses": ["Se imprime una vez que la solicitud ha sido procesada y aprobada en la fase de respuesta de trámite."]
-        },
-        {
-        "tag": "certificacion_documentos_validacion",
-        "patterns": ["como se valida la conclusion del tramite en el sistema"],
-        "responses": ["Mediante la carga al expediente digital del comprobante o acuse de certificación firmado y sellado por la autoridad competente."]
-        },
-        {
-        "tag": "certificacion_documentos_busquedasParalelas",
-        "patterns": ["en la pantalla de registro de certificacion de documentos cuales son las dos busquedas paralelas que se pueden efectuar para integrar el expediente"],
-        "responses": ["Se puede realizar la búsqueda del 'predio a certificar' o la búsqueda del 'propietario'."]
-        },
-        {
-        "tag": "certificacion_documentos_accionPredio",
-        "patterns": ["que accion tecnica sigue inmediatamente despues de ubicar al predio o propietario en el sistema"],
-        "responses": ["Se procede a 'Cargar los requisitos al expediente'."]
-        },
-        {
-        "tag": "certificacion_documentos_observacionManual",
-        "patterns": ["en que momento se agrega la observacion manual en el modulo antes de finalizar el ingreso del expediente"],
-        "responses": ["Justo después de cargar los requisitos y antes de imprimir el acuse de entrega."]
-        },
-        {
-        "tag": "certificacion_documentos_accionOperativa",
-        "patterns": ["Cual es la ultima accion operativa que ejecuta el usuario antes de cambiar el estado a fin en la captura de este servicio"],
-        "responses": ["Hacer clic en la opción/icono 'Turnamos'."]
-        },
-        {
-        "tag": "division_predios_pasos",
-        "patterns": ["cuales son las fases o subprocesos que componen el tramite de division de predios",
-                     "como puedo hacer una division de predios"],
-        "responses": ["1. Nuevo Trámites.\n 2. Vinculación Cartográfica.\n 3. Requisitos Completos.\n 4. Elaboración de División.\n 5. Integración Cartográfica.\n 6. Respuesta de Solicitud.\n 7. Escaneo de Documentos."]
-        },
-        {
-        "tag": "division_predios_vinculacionCartografica",
-        "patterns": ["como se lleva a cabo la vinculacion cartografica en la division de predios"],
-        "responses": ["1. Ingresar al módulo de Cartografía.\n 2. Localizar el predio a vincular.\n 3. Buscar y seleccionar el trámite.\n 4. Seleccionar y vincular el predio o geometría al trámite.\n 5. Comprobar que la información sea correcta, confirmar la vinculación haciéndose responsable de la misma, agregar observaciones y turnar."]
-        },
-        {
-        "tag": "division_predios_capturarDatos",
-        "patterns": ["que datos se deben capturar en la fase de elaboracion de division"],
-        "responses": ["Se agregan los datos de cada predio resultante de la división, la información de las construcciones que contenga cada predio, se crean observaciones y se turna el trámite."]
-        },
-        {
-        "tag": "division_predios_integracionCartografica",
-        "patterns": ["que acciones realiza el area de cartografia durante la integracion cartografica"],
-        "responses": ["1. Ingresa al módulo de cartografía en la sección 'División / Fusión de Predios'\n 2. Realiza la división conforme a la cantidad solicitada.\n 3. Asigna las construcciones y el orden de las cuentas.\n 4. Guarda los cambios, crea observaciones y turna el trámite."]
-        },
-        {
-        "tag": "division_predios_informacionIncorrecta",
-        "patterns": ["que ocurre en la respuesta de solicitud de division de predios si la informacion es incorrecta"],
-        "responses": ["El trámite se regresa a campo para su corrección, donde el personal correspondiente corrige el error cometido."]
-        },
-        {
-        "tag": "division_predios_requisitoResponsabilidad",
-        "patterns": ["En el subproceso de vinculacion cartografica para division de predios, cual es el requisito de responsabilidad formal antes de turnar"],
-        "responses": ["El operador debe comprobar que la información esté correcta y confirmar la vinculación en el sistema haciéndose responsable de la misma."]
-        },
-        {
-        "tag": "division_predios_registrarCampos",
-        "patterns": ["que campos especificos de construccion se deben registrar durante la elaboracion de division"],
-        "responses": ["Se debe capturar la información detallada de las construcciones que contenga cada uno de los predios resultantes."]
-        },
-        {
-        "tag": "division_predios_divisionCriterio",
-        "patterns": ["en la integracion cartografica cual es el criterio para dividir la geometria del predio en el mapa"],
-        "responses": ["Se realiza la división cartográfica estrictamente conforme a la cantidad de predios que se solicitó en el trámite."]
-        },
-        {
-        "tag": "division_predios_nuevosPredios",
-        "patterns": ["como se identifican y separan legalmente los nuevos predios dentro del sistema en el paso de integracion cartografica"],
-        "responses": ["Asignando las construcciones correspondientes y definiendo el orden de las cuentas catastrales."]
-        },
-        {
-        "tag": "division_predios_busquedaRapida",
-        "patterns": ["que opcion rapida de busqueda existe en la barra superior al capturar los datos del predio en division"],
-        "responses": ["'Número de Folio' o número de cuenta para localizar rápidamente el predio."]
-        },
-        {
-        "tag": "fusion_predios_",
-        "patterns": [""],
+        "tag": "division de predios",
+        "patterns": ["division de predios", "como dividir un predio", "tramite de division de predios"],
         "responses": [""]
         },
         {
-        "tag": "fusion_predios_",
-        "patterns": [""],
-        "responses": [""]
+        "tag": "fusion de predios",
+        "patterns": ["fusion de predios"],
+        "responses":[]
         },
         {
-        "tag": "fusion_predios_",
-        "patterns": [""],
-        "responses": [""]
+        "tag": "traslado de dominio",
+        "patterns": ["traslado de dominio", "como trasladar un predio", "tramite de traslado de dominio"],
+        "responses":[]
         },
         {
-        "tag": "fusion_predios_",
-        "patterns": [""],
-        "responses": [""]
-        },
-        {
-        "tag": "fusion_predios_",
-        "patterns": [""],
-        "responses": [""]
-        },
-        {
-        "tag": "fusion_predios_",
-        "patterns": [""],
-        "responses": [""]
-        },
-        {
-        "tag": "fusion_predios_",
-        "patterns": [""],
-        "responses": [""]
-        },
-        {
-        "tag": "fusion_predios_",
-        "patterns": [""],
-        "responses": [""]
-        },
-
-
-
-
-
-
-        {
-        "tag": "constancia_inscripcion_documentosInvalidos",
-        "patterns": ["en la etapa de requisitos completos, que paso sigue si la documentacion no cumple las validaciones"],
-        "responses": ["Se registran los hallazgos u observaciones de incorrección y se modifica/subsana la información devuelta antes de volver a turnar el servicio."]
+        "tag": "actualizacion de predios",
+        "patterns": ["actualizacion de predios", "como actualizar un predio", "tramite de actualizacion de predios"],
+        "responses":[]
         }
     ]
 }
