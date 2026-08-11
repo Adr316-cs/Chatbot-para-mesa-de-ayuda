@@ -399,6 +399,56 @@
         "responses": ["Regresa el trámite a la etapa de 'actualización' para modificar los datos."]
         },
         {
+        "tag": "actualizacion_predios_pasos",
+        "patterns": ["como se inicia el flujo de un tramite de actualizacion de predios"],
+        "responses": ["1. Ingresar a 'Trámites & Servicios' y seleccionar el municipio.\n 2. Seleccionar 'Actualización de Predios' y pulsar 'Nuevo Trámite'.\n 3. Realizar la búsqueda del predio y agregar datos del promovente.\n 4. Crear expediente, emitir observaciones, imprimir acuse de recibo y turnar."]
+        },
+        {
+        "tag": "actualizacion_predios_vinculacionCartografica",
+        "patterns": ["en que caso se activa la vinculacion cartografica dentro de la actualizacion de predios"],
+        "responses": ["Es una actividad activa únicamente cuando el predio no esté previamente vinculado."]
+        },
+        {
+        "tag": "actualizacion_predios_camposActualizacion",
+        "patterns": ["que campos se revisan y modifican en la etapa de actualizacion"],
+        "responses": ["Se llenan/validan los datos del predio, del propietario (el domicilio puede ser objeto de rectificación), los datos del terreno (Avalúo), la superficie de construcción y los datos de notificación."]
+        },
+        {
+        "tag": "actualizacion_predios_areaCartografia",
+        "patterns": ["que valida el area de cartografia en la integracion cartografica de actualizacion"],
+        "responses": ["Valida la geometría y el número de construcciones dibujadas. Si es incorrecto, dibuja o modifica los datos de las construcciones, guarda los cambios, emite observaciones y turna."]
+        },
+        {
+        "tag": "actualizacion_predios_imprimir",
+        "patterns": ["que paso sigue tras imprimir el acuse de entrega en la respuesta de solicitud"],
+        "responses": ["Pasa al 'Escaneo de documentos', donde se firma el acuse de entrega, se escanea el acuse firmado/sellado, se emiten observaciones y se concluye el trámite."]
+        },
+        {
+        "tag": "actualizacion_predios_condicionOperativa",
+        "patterns": ["bajo que condicion operativa se activa la subetapa de vinculacion cartografica dentro de una actualizacion"],
+        "responses": ["Según la nota explícita del manual, esta actividad está activa únicamente cuando el predio no esté previamente vinculado."]
+        },
+        {
+        "tag": "actualizacion_predios_actualizacionCaptura",
+        "patterns": ["en la captura de la actualizacion que dato del propietario tiene una anotacion especial sobre su modificabilidad"],
+        "responses": ["El 'domicilio del predio', el cual se indica explícitamente que puede ser objeto de rectificación."]
+        },
+        {
+        "tag": "actualizacion_predios_validacionFinal",
+        "patterns": ["que datos complementarios deben validarse al final del llenado de la actualizacion tecnica del terreno y construccion"],
+        "responses": ["Se deben validar y completar los datos de la notificación."]
+        },
+        {
+        "tag": "actualizacion_predios_validacionCartografica",
+        "patterns": ["que elemento grafico valida cartografia durante la integracion cartografica de la actualizacion"],
+        "responses": ["Valida la Geometría y las Construcciones (verificando si el número de construcciones dibujadas es correcto o incorrecto)."]
+        },
+        {
+        "tag": "actualizacion_predios_solicitudActualizacion",
+        "patterns": ["si en la respuesta de solicitud de actualizacion se presiona la opcion no informacion incorrecta hacia donde retorna el flujo"],
+        "responses": ["Regresa el trámite a la etapa de 'actualización' para la modificación de datos erróneos."]
+        },
+        {
         "tag": "avaluo_catastral_pasosAlta",
         "patterns": ["como se efectua el alta del tramite de avaluo catastral"],
         "responses": ["Se ingresa a Trámites & Servicios, se selecciona el municipio y la opción de Avalúo Catastral, se capturan datos del promovente y predio, se adjuntan requisitos al expediente, se emiten observaciones, se imprime el acuse de recibo y se turna."]
@@ -424,39 +474,54 @@
         "responses": ["Se emite la respuesta, se imprime el acuse de entrega, se recopilan las firmas del usuario/autoridad y se carga el archivo escaneado al expediente digital."]
         },
         {
-        "tag": "avaluo_catastral_procesoSolicitud",
+        "tag": "avaluo_catastral_moduloInicio",
+        "patterns": ["en que modulo se inicia formalmente el tramite de avaluo catastral"],
+        "responses": ["En el módulo de 'Trámites & Servicios'."]
+        },
+        {
+        "tag": "avaluo_catastral_areaResponsable",
+        "patterns": ["que area es anotada especificamente como responsable de verificar la vinculacion Cartografica e integracion cartografica"],
+        "responses": ["El 'Área responsable: Cartografía'."]
+        },
+        {
+        "tag": "avaluo_catastral_documentacionVigente",
+        "patterns": ["en el flujo de requisitos completos del avaluo Catastral que opcion debe marcar el revisor si la documentacion esta vigente y completa"],
+        "responses": ["Debe validar la información como correcta (marcando el icono de verificación/aceptación) para emitir comentarios y turnar."]
+        },
+        {
+        "tag": "avaluo_catastral_ajusteAreas",
+        "patterns": ["En qué subproceso del Avalúo Catastral se efectúa el ajuste de las áreas y polígonos modificados"],
+        "responses": ["En la 'Integración Cartográfica' dentro del Módulo de Cartografía."]
+        },
+        {
+        "tag": "avaluo_catastral_rutaFinal",
+        "patterns": ["cual es la ruta final del expediente de avaluo catastral una vez emitida la respuesta aprobatoria"],
+        "responses": ["Imprimir el acuse de entrega -> Escaneo de documentos (firmado y sellado) -> Emisión de comentarios -> Fin del trámite."]
+        },
+        {
+        "tag": "avaluo_comercial_procesoSolicitud",
         "patterns": ["cual es el punto de inicio para procesar una solicitud de avaluo comercial"],
         "responses": ["Ingresar al módulo de 'Trámites & Servicios', seleccionar la opción 'Avalúo Comercial', registrar datos del promovente y la ubicación del predio a valuar."]
         },
         {
-        "tag": "avaluo_catastral_documentos",
+        "tag": "avaluo_comercial_documentos",
         "patterns": ["que documentos se deben integrar al expediente en la fase inicial del avaluo comercial"],
         "responses": ["Los requisitos documentales que respaldan la propiedad y las características físicas o legales requeridas por la normativa catastral."]
         },
         {
-        "tag": "avaluo_catastral_seccionCartografica",
+        "tag": "avaluo_comercial_seccionCartografica",
         "patterns": ["como interactua el tramite con la seccion de cartografia"],
         "responses": ["El departamento de Cartografía ubica el predio en la capa cartográfica y valida la geometría y superficie comercial del inmueble."]
         },
         {
-        "tag": "avaluo_catastral_requisitosIncompletos",
+        "tag": "avaluo_comercial_requisitosIncompletos",
         "patterns": ["que ocurre si la informacion ingresada para el avaluo comercial no cumple con los requisitos"],
         "responses": ["Se notifican los hallazgos mediante comentarios de observaciones para que el promovente subsane la documentación o se emita el rechazo."]
         },
         {
-        "tag": "avaluo_catastral_",
-        "patterns": ["Cuál es el requisito para cerrar el expediente de Avalúo Comercial"],
-        "responses": [""]
-        },
-        {
-        "tag": "avaluo_catastral_",
-        "patterns": [""],
-        "responses": [""]
-        },
-        {
-        "tag": "avaluo_catastral_",
-        "patterns": [""],
-        "responses": [""]
+        "tag": "avaluo_comercial_requisitoCerrar",
+        "patterns": ["cual es el requisito para cerrar el expediente de avaluo comercial"],
+        "responses": ["Generar e imprimir el dictamen/acuse de entrega, recolectar firmas y subir el documento escaneado al sistema."]
         },
         {
         "tag": "avaluo_catastral_",
