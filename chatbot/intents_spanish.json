@@ -161,55 +161,107 @@
         "responses": ["En caso de datos erróneos no se rechaza el expediente, sino que regresa el servicio a la bandeja para modificar los datos e iterar el ciclo de corrección."]
         },
         {
-        "tag": "Certificacion_documentos_pasos",
+        "tag": "certificacion_documentos_pasos",
         "patterns": ["que datos e informacion se requieren al registrar la solicitud de certificacion de documentos"],
         "responses": ["1. Ingresar al módulo de Trámites y Servicios.\n 2. Seleccionar el trámite correspondiente.\n 3. Ingresar datos del promovente.\n 4. Buscar el predio a certificar.\n 5. Buscar al propietario.\n 6. Cargar los requisitos al expediente, agregar observaciones, imprimir acuse de entrega y turnar."]
         },
         {
-        "tag": "Certificacion_documentos_gestionRequisitos",
+        "tag": "certificacion_documentos_gestionRequisitos",
         "patterns": ["como se gestiona la revision de requisitos completos en certificacion de documentos"],
         "responses": ["Se verifica la legibilidad y validez de los documentos. Si están completos se avala la solicitud; si no, se notifican las observaciones para su subsanación."]
         },
         {
-        "tag": "Certificacion_documentos_busquedaPredio",
+        "tag": "certificacion_documentos_busquedaPredio",
         "patterns": ["que rol cumple la busqueda de predio y propietario en el expediente de certificacion"],
         "responses": ["Asegura la vinculación exacta entre el documento base que se va a certificar y el registro catastral vigente."]
         },
         {
-        "tag": "Certificacion_documentos_acuseEntrega",
+        "tag": "certificacion_documentos_acuseEntrega",
         "patterns": ["en que momento se imprime el acuse de entrega dentro del flujo de certificacion de documentos"],
         "responses": ["Se imprime una vez que la solicitud ha sido procesada y aprobada en la fase de respuesta de trámite."]
         },
         {
-        "tag": "Certificacion_documentos_validacion",
+        "tag": "certificacion_documentos_validacion",
         "patterns": ["como se valida la conclusion del tramite en el sistema"],
         "responses": ["Mediante la carga al expediente digital del comprobante o acuse de certificación firmado y sellado por la autoridad competente."]
         },
         {
-        "tag": "Certificacion_documentos_busquedasParalelas",
+        "tag": "certificacion_documentos_busquedasParalelas",
         "patterns": ["en la pantalla de registro de certificacion de documentos cuales son las dos busquedas paralelas que se pueden efectuar para integrar el expediente"],
         "responses": ["Se puede realizar la búsqueda del 'predio a certificar' o la búsqueda del 'propietario'."]
         },
         {
-        "tag": "Certificacion_documentos_accionPredio",
+        "tag": "certificacion_documentos_accionPredio",
         "patterns": ["que accion tecnica sigue inmediatamente despues de ubicar al predio o propietario en el sistema"],
         "responses": ["Se procede a 'Cargar los requisitos al expediente'."]
         },
         {
-        "tag": "Certificacion_documentos_observacionManual",
+        "tag": "certificacion_documentos_observacionManual",
         "patterns": ["en que momento se agrega la observacion manual en el modulo antes de finalizar el ingreso del expediente"],
         "responses": ["Justo después de cargar los requisitos y antes de imprimir el acuse de entrega."]
         },
         {
-        "tag": "Certificacion_documentos_accionOperativa",
+        "tag": "certificacion_documentos_accionOperativa",
         "patterns": ["Cual es la ultima accion operativa que ejecuta el usuario antes de cambiar el estado a fin en la captura de este servicio"],
         "responses": ["Hacer clic en la opción/icono 'Turnamos'."]
         },
         {
-        "tag": "Certificacion_documentos_",
+        "tag": "division_predios_pasos",
+        "patterns": ["cuales son las fases o subprocesos que componen el tramite de division de predios",
+                     "como puedo hacer una division de predios"],
+        "responses": ["1. Nuevo Trámites.\n 2. Vinculación Cartográfica.\n 3. Requisitos Completos.\n 4. Elaboración de División.\n 5. Integración Cartográfica.\n 6. Respuesta de Solicitud.\n 7. Escaneo de Documentos."]
+        },
+        {
+        "tag": "division_predios_vinculacionCartografica",
+        "patterns": ["como se lleva a cabo la vinculacion cartografica en la division de predios"],
+        "responses": ["1. Ingresar al módulo de Cartografía.\n 2. Localizar el predio a vincular.\n 3. Buscar y seleccionar el trámite.\n 4. Seleccionar y vincular el predio o geometría al trámite.\n 5. Comprobar que la información sea correcta, confirmar la vinculación haciéndose responsable de la misma, agregar observaciones y turnar."]
+        },
+        {
+        "tag": "division_predios_capturarDatos",
+        "patterns": ["que datos se deben capturar en la fase de elaboracion de division"],
+        "responses": ["Se agregan los datos de cada predio resultante de la división, la información de las construcciones que contenga cada predio, se crean observaciones y se turna el trámite."]
+        },
+        {
+        "tag": "division_predios_integracionCartografica",
+        "patterns": ["que acciones realiza el area de cartografia durante la integracion cartografica"],
+        "responses": ["1. Ingresa al módulo de cartografía en la sección 'División / Fusión de Predios'\n 2. Realiza la división conforme a la cantidad solicitada.\n 3. Asigna las construcciones y el orden de las cuentas.\n 4. Guarda los cambios, crea observaciones y turna el trámite."]
+        },
+        {
+        "tag": "division_predios_informacionIncorrecta",
+        "patterns": ["que ocurre en la respuesta de solicitud de division de predios si la informacion es incorrecta"],
+        "responses": ["El trámite se regresa a campo para su corrección, donde el personal correspondiente corrige el error cometido."]
+        },
+        {
+        "tag": "division_predios_",
         "patterns": [""],
         "responses": [""]
         },
+        {
+        "tag": "division_predios_",
+        "patterns": [""],
+        "responses": [""]
+        },
+        {
+        "tag": "division_predios_",
+        "patterns": [""],
+        "responses": [""]
+        },
+        {
+        "tag": "division_predios_",
+        "patterns": [""],
+        "responses": [""]
+        },
+        {
+        "tag": "division_predios_",
+        "patterns": [""],
+        "responses": [""]
+        },
+
+
+
+
+
+
 
 
 
