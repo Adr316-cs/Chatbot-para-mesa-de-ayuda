@@ -232,34 +232,70 @@
         "responses": ["El trámite se regresa a campo para su corrección, donde el personal correspondiente corrige el error cometido."]
         },
         {
-        "tag": "division_predios_",
+        "tag": "division_predios_requisitoResponsabilidad",
+        "patterns": ["En el subproceso de vinculacion cartografica para division de predios, cual es el requisito de responsabilidad formal antes de turnar"],
+        "responses": ["El operador debe comprobar que la información esté correcta y confirmar la vinculación en el sistema haciéndose responsable de la misma."]
+        },
+        {
+        "tag": "division_predios_registrarCampos",
+        "patterns": ["que campos especificos de construccion se deben registrar durante la elaboracion de division"],
+        "responses": ["Se debe capturar la información detallada de las construcciones que contenga cada uno de los predios resultantes."]
+        },
+        {
+        "tag": "division_predios_divisionCriterio",
+        "patterns": ["en la integracion cartografica cual es el criterio para dividir la geometria del predio en el mapa"],
+        "responses": ["Se realiza la división cartográfica estrictamente conforme a la cantidad de predios que se solicitó en el trámite."]
+        },
+        {
+        "tag": "division_predios_nuevosPredios",
+        "patterns": ["como se identifican y separan legalmente los nuevos predios dentro del sistema en el paso de integracion cartografica"],
+        "responses": ["Asignando las construcciones correspondientes y definiendo el orden de las cuentas catastrales."]
+        },
+        {
+        "tag": "division_predios_busquedaRapida",
+        "patterns": ["que opcion rapida de busqueda existe en la barra superior al capturar los datos del predio en division"],
+        "responses": ["'Número de Folio' o número de cuenta para localizar rápidamente el predio."]
+        },
+        {
+        "tag": "fusion_predios_",
         "patterns": [""],
         "responses": [""]
         },
         {
-        "tag": "division_predios_",
+        "tag": "fusion_predios_",
         "patterns": [""],
         "responses": [""]
         },
         {
-        "tag": "division_predios_",
+        "tag": "fusion_predios_",
         "patterns": [""],
         "responses": [""]
         },
         {
-        "tag": "division_predios_",
+        "tag": "fusion_predios_",
         "patterns": [""],
         "responses": [""]
         },
         {
-        "tag": "division_predios_",
+        "tag": "fusion_predios_",
         "patterns": [""],
         "responses": [""]
         },
-
-
-
-
+        {
+        "tag": "fusion_predios_",
+        "patterns": [""],
+        "responses": [""]
+        },
+        {
+        "tag": "fusion_predios_",
+        "patterns": [""],
+        "responses": [""]
+        },
+        {
+        "tag": "fusion_predios_",
+        "patterns": [""],
+        "responses": [""]
+        },
 
 
 
