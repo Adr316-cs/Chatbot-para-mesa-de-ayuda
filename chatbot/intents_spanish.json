@@ -594,51 +594,144 @@
         "responses": ["El 'Escaneo del manifiesto con todas las firmas ya integradas'."]
         },
         {
-        "tag": "traslado_dominio_",
+        "tag": "traslado_dominio_secuenciaEscaneo",
         "patterns": ["cual es la secuencia completa del subproceso de escaneo de documentos en lraslado de dominio?"],
         "responses": ["1. Inicio.\n 2. Ingresar a Trámites y servicios.\n 3. Buscar trámite por número de folio.\n 4. Seleccionar el trámite correspondiente.\n 5. Escaneo del manifiesto con firmas integradas.\n 6. Subir el archivo escaneado.\n 7. Agregar la observación\n 8. Finalizar (Fin)."]
         },
         {
-        "tag": "traslado_dominio_",
-        "patterns": [""],
-        "responses": [""]
+        "tag": "alta_predio_capas",
+        "patterns": ["que capas deben habilitarse en la seccion IDC para dar de alta un predio"],
+        "responses": ["Se deben habilitar: Zonas catastrales, Sectores catastrales y Predios."]
         },
         {
-        "tag": "traslado_dominio_",
-        "patterns": [""],
-        "responses": [""]
+        "tag": "alta_predio_pasosClave",
+        "patterns": ["cuales son los pasos clave para dibujar un nuevo predio manzanero"],
+        "responses": ["Activar la herramienta de edición en 'Predio', seleccionar 'Alta de predio manzanero', seleccionar el 'Sector Catastral', elegir 'Dibujar un Polígono', dibujar el polígono y guardar."]
         },
         {
-        "tag": "traslado_dominio_",
-        "patterns": [""],
-        "responses": [""]
+        "tag": "alta_predio_informacionObligatoria",
+        "patterns": ["que informacion obligatoria se debe capturar al guardar el poligono de un nuevo predio"],
+        "responses": ["El motivo de la creación, la persona responsable y la persona que autoriza."]
         },
         {
-        "tag": "traslado_dominio_",
-        "patterns": [""],
-        "responses": [""]
+        "tag": "alta_predio_herramientaActivar",
+        "patterns": ["cual es la herramienta especifica que se debe activar dentro del elemento 'Predio' para crear una manzana nueva"],
+        "responses": ["La herramienta denominada 'Alta de predio manzanero'."]
         },
         {
-        "tag": "traslado_dominio_",
-        "patterns": [""],
-        "responses": [""]
+        "tag": "alta_predio_herramientaGeometrica",
+        "patterns": ["que herramienta geometrica se debe utilizar para trazar los limites del nuevo predio sobre el mapa"],
+        "responses": ["La herramienta 'Dibujar un Polígono'."]
         },
         {
-        "tag": "traslado_dominio_",
-        "patterns": [""],
-        "responses": [""]
+        "tag": "alta_predio_herramientaDibujo",
+        "patterns": ["antes de usar la herramienta de dibujo que elemento geografico debe seleccionarse obligatoriamente"],
+        "responses": ["El 'Sector Catastral'."]
         },
         {
-        "tag": "traslado_dominio_",
-        "patterns": [""],
-        "responses": [""]
+        "tag": "alta_predio_guardarPoligono",
+        "patterns": ["al guardar el poligono dibujado que tres campos de auditoría exige registrar el sistema"],
+        "responses": ["1. El motivo de la creación.\n 2. Responsable.\n 3. Persona que autoriza."]
         },
-
-
         {
-        "tag": "constancia_inscripcion_documentosInvalidos",
-        "patterns": ["en la etapa de requisitos completos, que paso sigue si la documentacion no cumple las validaciones"],
-        "responses": ["Se registran los hallazgos u observaciones de incorrección y se modifica/subsana la información devuelta antes de volver a turnar el servicio."]
+        "tag": "alta_predio_capasHanilitacion",
+        "patterns": ["cuales son las 3 capas que deben habilitarse en la seccion IDC del menu capas para esta operacion"],
+        "responses": ["Zonas catastrales, Sectores catastrales y Predios."]
+        },
+        {
+        "tag": "cartografiaDivision_predios_herramientas",
+        "patterns": ["que herramientas se seleccionan para realizar la division grafica de un predio"],
+        "responses": ["Se activa la edición en 'Predio', se selecciona 'División de predios', se selecciona el predio a dividir y se utiliza la herramienta 'Dibujar Línea'."]
+        },
+        {
+        "tag": "cartografiaDivision_predios_opciones",
+        "patterns": ["que opcion especial existe para dividir predios en cartografia"],
+        "responses": ["Opción de división de predio por 'Rumbo y Distancia'."]
+        },
+        {
+        "tag": "cartografiaDivision_predios_capasHabilitadas",
+        "patterns": ["que capas deben estar habilitadas en la seccion IDC para ejecutar la division desde el modulo de cartografia"],
+        "responses": ["Únicamente la capa de 'Predios'."]
+        },
+        {
+        "tag": "cartografiaDivision_predios_herramientasDibujo",
+        "patterns": ["que herramienta de dibujo se utiliza para cortar o fraccionar la geometria del predio seleccionado"],
+        "responses": ["La herramienta 'Dibujar Línea'."]
+        },
+        {
+        "tag": "cartografiaDivision_predios_asignacion",
+        "patterns": ["despues de trazar la linea de division que asignacion debe hacer el operador para cada fragmento resultante"],
+        "responses": ["Debe 'Seleccionar el número de predio correspondiente a cada división'."]
+        },
+        {
+        "tag": "cartografiaDivision_predios_funcionAvanzada",
+        "patterns": ["que funcion avanzada permite la division de predios sin dibujar a mano alzada segun el diagrama"],
+        "responses": ["La 'Opción de división de predio por 'Rumbo y Distancia'."]
+        },
+        {
+        "tag": "cartografiaDivision_predios_descripcion",
+        "patterns": ["que datos se deben describir al guardar la division dibujada en la cartografia"],
+        "responses": ["El motivo de la creación, la persona Responsable y la Persona que autoriza."]
+        },
+        {
+        "tag": "cartografiaFusion_predios_elementosCapas",
+        "patterns": ["que elementos de capas deben estar activos para la fusion de predios en cartografia"],
+        "responses": ["'Manzanas y Predios'"]
+        },
+        {
+        "tag": "cartografiaFusion_predios_resultantes",
+        "patterns": ["como se asigna la cuenta resultante en una fusion cartografica"],
+        "responses": ["Se seleccionan dos o más predios contiguos a fusionar y se selecciona la cuenta predial que va a quedar asignada como principal."]
+        },
+        {
+        "tag": "cartografiaFusion_predios_capasActivas",
+        "patterns": ["cuales son las dos capas que se deben habilitar en la seccion IDC para la fusion cartografica"],
+        "responses": ["'Manzanas y Predios'"]
+        },
+        {
+        "tag": "cartografiaFusion_predios_condiciones",
+        "patterns": ["cual es la condicion espacial obligatoria que deben cumplir los predios que se desean fusionar"],
+        "responses": ["Deben ser 'dos o más predios contiguos'."]
+        },
+        {
+        "tag": "cartografiaFusion_predios_prediosContinuos",
+        "patterns": ["tras seleccionar los predios contiguos que decision critica sobre la cuenta catastral debe tomar el usuario"],
+        "responses": ["Debe 'Seleccionar la cuenta predial que va a quedar asignada como principal'."]
+        },
+        {
+        "tag": "cartografiaFusion_predios_menuEdicion",
+        "patterns": ["que herramienta especifica se selecciona en el menu de edicion tras activar la capa Predio"],
+        "responses": ["La herramienta de 'Fusión de predios'."]
+        },
+        {
+        "tag": "cartografiaFusion_predios_metadatos",
+        "patterns": ["cuales son los metadatos requeridos al momento de guardar la fusion de las geometrias"],
+        "responses": ["Motivo de la creación, Responsable y Persona que autoriza."]
+        },
+        {
+        "tag": "cartografia_vinculacion_pasos",
+        "patterns": ["cual es el primer paso dentro del modulo de cartografia para iniciar cualquier vinculacion cartografica"],
+        "responses": ["'Localizamos el predio que se va a vincular al trámite creado'."]
+        },
+        {
+        "tag": "cartografia_vinculacion_mapaGrafico",
+        "patterns": ["como relaciona el operador el mapa grafico con el tramite administrativo ingresado previamente"],
+        "responses": ["Busca y selecciona el trámite en la sección correspondiente de cartografía y selecciona la geometría o predio para vincularlo al trámite."]
+        },
+        {
+        "tag": "cartografia_vinculacion_confirmacion",
+        "patterns": ["que confirmacion exige la plataforma respecto a la cuenta predial durante la vinculacion"],
+        "responses": ["Exige 'Confirmamos la propiedad a la que se le asignará el trámite mediante la cuenta predial'."]
+        },
+        {
+        "tag": "cartografia_vinculacion_verificacion",
+        "patterns": ["que verificaciones debe validar el usuario antes de crear las observaciones finales"],
+        "responses": ["Comprobar que la información esté correcta, confirmar la vinculación y hacerse responsable de la misma en el sistema."]
+        },
+        {
+        "tag": "cartografia_vinculacion_eventoFinal",
+        "patterns": ["cual es el evento de Vinculación cartografica antes del Fin"],
+        "responses": ["'Turnamos trámite'."]
         }
     ]
 }
