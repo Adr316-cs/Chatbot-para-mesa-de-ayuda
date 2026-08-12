@@ -152,6 +152,45 @@ ampliarlas tambien.
 Al agregar casos nuevos, no uses frases que ya esten en `patterns`: seria
 entrenar sobre el examen y el resultado dejaria de significar nada.
 
+## Preguntas no entendidas
+
+`evaluar.py` mide contra un examen escrito a mano. Esta bitacora mide contra la
+realidad: que esta preguntando la gente, en sus palabras.
+
+El bot anota solo dos casos:
+
+| Motivo | Cuando | Que significa |
+|---|---|---|
+| `sin_coincidencia` | Ninguna intencion supero el umbral | No supo contestar. **Lo mas urgente** |
+| `confianza_baja` | Contesto con menos de 0.70 | Contesto, pero pudo equivocarse |
+
+Se guarda en `chatbot/no_entendidas.csv`, que **esta en `.gitignore`**: es texto
+escrito por usuarios y puede traer datos personales o numeros de expediente.
+
+**No se registra nada escrito dentro del formulario de ticket** (nombre, correo,
+telefono, descripcion). Esa rama sale antes de llegar al clasificador, que es
+el unico punto donde se anota. Tampoco se registran los clics de menu ni lo que
+el bot si entendio.
+
+### Ver el reporte
+
+```bash
+python reporte.py                # los 15 grupos mas frecuentes
+python reporte.py --dias 7       # solo la ultima semana
+python reporte.py --todo         # sin limite
+```
+
+Agrupa las preguntas parecidas por sus palabras con contenido, no por texto
+exacto: "como pago el predial" y "donde pago el impuesto predial" cuentan como
+la misma necesidad. Lo que salga arriba con mas repeticiones es lo siguiente
+que conviene cubrir.
+
+El ciclo completo queda asi:
+
+```
+reporte.py  ->  editar intents_spanish.json  ->  training_chatbot.py  ->  evaluar.py
+```
+
 ## Escalamiento a ticket
 
 El menu resuelve el "como hago X". Los tickets atienden la otra mitad: un

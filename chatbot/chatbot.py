@@ -19,6 +19,7 @@ from preprocess import (
     strip_accents,
     tiene_palabras_de_contenido,
 )
+from registro import UMBRAL_DUDOSO, registrar
 from tickets import crear_ticket
 
 # Confianza minima para dar por buena una intencion. Por debajo de esto se
@@ -267,11 +268,12 @@ def _paso_ticket(mensaje, estado):
     }, estado
 
 
-def predict_class(sentence):
-    """Devuelve las intenciones candidatas ordenadas por probabilidad.
+def _clasificar(sentence):
+    """Devuelve (candidatas_sobre_umbral, mejor_candidata, su_confianza).
 
-    Puede devolver una lista vacia si ninguna supera el umbral; quien la
-    consuma debe contemplarlo.
+    La mejor candidata se devuelve aunque no supere el umbral: la bitacora
+    necesita saber que estuvo a punto de contestar, y asi el modelo se ejecuta
+    una sola vez por mensaje.
     """
     bow = bag_of_words(sentence, words)
 
@@ -283,12 +285,22 @@ def predict_class(sentence):
     # 2. Solo coinciden palabras vacias ('quien', 'el', 'de'...), que estan en
     #    casi todos los patrones y no distinguen nada.
     if not bow.any() or not tiene_palabras_de_contenido(sentence, words):
-        return []
+        return [], None, 0.0
 
     res = model.predict(np.array([bow]), verbose=0)[0]
-    results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
-    results.sort(key=lambda x: x[1], reverse=True)
-    return [{"intent": classes[r[0]], "probability": str(r[1])} for r in results]
+    orden = sorted(enumerate(res), key=lambda x: x[1], reverse=True)
+    mejor_i, mejor_p = orden[0]
+    sobre_umbral = [{"intent": classes[i], "probability": str(p)}
+                    for i, p in orden if p > ERROR_THRESHOLD]
+    return sobre_umbral, classes[mejor_i], float(mejor_p)
+
+
+def predict_class(sentence):
+    """Intenciones candidatas que superan el umbral, ordenadas por probabilidad.
+
+    Puede devolver una lista vacia; quien la consuma debe contemplarlo.
+    """
+    return _clasificar(sentence)[0]
 
 
 def get_response(intents_list, intents_json):
@@ -350,16 +362,25 @@ def responder(mensaje, estado=None):
         estado["fallos"] = 0
         return respuesta_menu, estado
 
-    intents_list = predict_class(mensaje)
+    # Solo se llega aqui con una pregunta de verdad: lo que se escribe dentro
+    # del formulario de ticket (nombre, correo, telefono) sale antes y nunca
+    # toca la bitacora.
+    intents_list, candidato, confianza = _clasificar(mensaje)
     respuesta = get_response(intents_list, intents)
 
     if intents_list:
         estado["fallos"] = 0
+        # Contesto, pero sin estar seguro: es donde mas probable es que haya
+        # respondido otra cosa, asi que queda anotado para revisarlo.
+        if confianza < UMBRAL_DUDOSO:
+            registrar(mensaje, "confianza_baja", candidato, confianza)
         # Tras responder un problema se ofrece escalar, por si la respuesta no
         # resolvio el caso. En una pregunta de tramite no hace falta.
         es_problema = intents_list[0]["intent"].startswith("problema_")
         opciones = [ETIQUETA_TICKET, VOLVER_AL_MENU] if es_problema else []
         return {"response": respuesta, "options": opciones}, estado
+
+    registrar(mensaje, "sin_coincidencia", candidato, confianza)
 
     # No se entendio. Se ofrece salida en vez de dejar al usuario atorado, y a
     # la segunda seguida se propone abiertamente escalar a un agente.

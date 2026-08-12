@@ -7,6 +7,10 @@ credenciales.json
 # No deben acabar en el repositorio.
 tickets.csv
 
+# Bitacora de preguntas no entendidas: es texto escrito por los usuarios y
+# puede contener datos personales o numeros de expediente.
+no_entendidas.csv
+
 # Entorno virtual
 venv/
 .venv/
