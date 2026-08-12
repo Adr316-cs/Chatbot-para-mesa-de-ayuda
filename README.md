@@ -140,8 +140,14 @@ un usuario, **ninguna copiada de los patrones de entrenamiento**. Esa es la
 diferencia con el acierto que reporta `training_chatbot.py`, que es sobre sus
 propios patrones y siempre da ~100% porque mide memorizacion.
 
-Estado actual: **97-98%** (varia un par de puntos entre entrenamientos por el
-barajado aleatorio y el dropout). Antes de ampliar los patrones era 45%.
+Estado actual: **98-99%** sobre 82 casos (varia un par de puntos entre
+entrenamientos por el barajado aleatorio y el dropout, asi que conviene mirar
+el rango de varias corridas y no un solo numero).
+
+Historial: 45% al empezar. 97% tras ampliar los patrones de los tramites
+originales. 79% al incorporar las 42 intenciones de traslado de dominio,
+alta de predio y cartografia (venian con un patron cada una). 98-99% tras
+ampliarlas tambien.
 
 Al agregar casos nuevos, no uses frases que ya esten en `patterns`: seria
 entrenar sobre el examen y el resultado dejaria de significar nada.

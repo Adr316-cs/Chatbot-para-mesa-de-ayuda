@@ -1473,25 +1473,27 @@
         {
             "tag": "alta_predio_capas",
             "patterns": [
-                "que capas deben habilitarse en la seccion IDC para dar de alta un predio"
+                "que capas deben habilitarse en la seccion IDC para dar de alta un predio",
+                "cuales son las 3 capas que deben habilitarse en la seccion IDC del menu capas para esta operacion",
+                "que capas se habilitan en idc para dar de alta un predio",
+                "cuales son las tres capas del alta de predio",
+                "que capas prendo para crear un predio",
+                "capas necesarias para dar de alta un predio",
+                "que debo habilitar en idc para el alta de predio"
             ],
             "responses": [
                 "Se deben habilitar: Zonas catastrales, Sectores catastrales y Predios."
             ]
         },
         {
-            "tag": "alta_predio_capasHanilitacion",
-            "patterns": [
-                "cuales son las 3 capas que deben habilitarse en la seccion IDC del menu capas para esta operacion"
-            ],
-            "responses": [
-                "Zonas catastrales, Sectores catastrales y Predios."
-            ]
-        },
-        {
             "tag": "alta_predio_guardarPoligono",
             "patterns": [
-                "al guardar el poligono dibujado que tres campos de auditoría exige registrar el sistema"
+                "al guardar el poligono dibujado que tres campos de auditoría exige registrar el sistema",
+                "que informacion obligatoria se debe capturar al guardar el poligono de un nuevo predio",
+                "que campos pide al guardar el poligono del predio nuevo",
+                "que datos de auditoria exige el alta de predio",
+                "que informacion obligatoria pide al guardar un predio nuevo",
+                "que registro al guardar el poligono del alta de predio"
             ],
             "responses": [
                 "1. El motivo de la creación.\n 2. Responsable.\n 3. Persona que autoriza."
@@ -1500,7 +1502,10 @@
         {
             "tag": "alta_predio_herramientaActivar",
             "patterns": [
-                "cual es la herramienta especifica que se debe activar dentro del elemento 'Predio' para crear una manzana nueva"
+                "cual es la herramienta especifica que se debe activar dentro del elemento 'Predio' para crear una manzana nueva",
+                "que herramienta activo para crear una manzana",
+                "herramienta para el alta de predio manzanero",
+                "que opcion selecciono dentro de predio para crear una manzana"
             ],
             "responses": [
                 "La herramienta denominada 'Alta de predio manzanero'."
@@ -1509,7 +1514,10 @@
         {
             "tag": "alta_predio_herramientaDibujo",
             "patterns": [
-                "antes de usar la herramienta de dibujo que elemento geografico debe seleccionarse obligatoriamente"
+                "antes de usar la herramienta de dibujo que elemento geografico debe seleccionarse obligatoriamente",
+                "que elemento selecciono antes de dibujar el predio",
+                "que debo elegir obligatoriamente antes de usar la herramienta de dibujo",
+                "que se selecciona antes de trazar el predio"
             ],
             "responses": [
                 "El 'Sector Catastral'."
@@ -1518,25 +1526,25 @@
         {
             "tag": "alta_predio_herramientaGeometrica",
             "patterns": [
-                "que herramienta geometrica se debe utilizar para trazar los limites del nuevo predio sobre el mapa"
+                "que herramienta geometrica se debe utilizar para trazar los limites del nuevo predio sobre el mapa",
+                "que herramienta uso para trazar los limites del predio",
+                "con que dibujo el poligono del predio nuevo",
+                "herramienta geometrica para el alta de predio",
+                "como trazo el contorno del predio en el mapa"
             ],
             "responses": [
                 "La herramienta 'Dibujar un Polígono'."
             ]
         },
         {
-            "tag": "alta_predio_informacionObligatoria",
-            "patterns": [
-                "que informacion obligatoria se debe capturar al guardar el poligono de un nuevo predio"
-            ],
-            "responses": [
-                "El motivo de la creación, la persona responsable y la persona que autoriza."
-            ]
-        },
-        {
             "tag": "alta_predio_pasosClave",
             "patterns": [
-                "cuales son los pasos clave para dibujar un nuevo predio manzanero"
+                "cuales son los pasos clave para dibujar un nuevo predio manzanero",
+                "como dibujo un predio manzanero",
+                "pasos para crear un predio manzanero",
+                "como doy de alta un predio en el mapa",
+                "procedimiento para dibujar un predio nuevo",
+                "como creo una manzana nueva"
             ],
             "responses": [
                 "Activar la herramienta de edición en 'Predio', seleccionar 'Alta de predio manzanero', seleccionar el 'Sector Catastral', elegir 'Dibujar un Polígono', dibujar el polígono y guardar."
@@ -1545,7 +1553,10 @@
         {
             "tag": "avaluo_comercial_asignados",
             "patterns": [
-                "que perfil tecnico se encarga de corroborar los deslindes y valores del terreno en el mapa para el avaluo comercial"
+                "que perfil tecnico se encarga de corroborar los deslindes y valores del terreno en el mapa para el avaluo comercial",
+                "que perfil revisa los deslindes del avaluo comercial",
+                "quien corrobora los valores del terreno en el avaluo comercial",
+                "que area verifica el mapa en el avaluo comercial"
             ],
             "responses": [
                 "El personal asignado al área de Cartografía mediante la vinculación e integración de capas."
@@ -1554,7 +1565,10 @@
         {
             "tag": "avaluo_comercial_comprobante",
             "patterns": [
-                "que comprobante debe adjuntarse obligatoriamente para cerrar el expediente digital de un avaluo comercial"
+                "que comprobante debe adjuntarse obligatoriamente para cerrar el expediente digital de un avaluo comercial",
+                "que comprobante se adjunta en el avaluo comercial",
+                "que acuse se sube al expediente del avaluo comercial",
+                "documento con firmas que cierra el avaluo comercial"
             ],
             "responses": [
                 "El acuse de entrega o dictamen con firmas autógrafas/sellos escaneado y subido al módulo."
@@ -1563,7 +1577,10 @@
         {
             "tag": "avaluo_comercial_datosSolicitante",
             "patterns": [
-                "que datos del solicitante son indispensables para abrir el expediente de avaluo comercial"
+                "que datos del solicitante son indispensables para abrir el expediente de avaluo comercial",
+                "que datos del promovente pide el avaluo comercial",
+                "que informacion del solicitante necesita el avaluo comercial",
+                "datos indispensables para abrir el expediente de avaluo comercial"
             ],
             "responses": [
                 "Los datos completos del promovente y la localización exacta del predio objeto del avalúo."
@@ -1572,7 +1589,10 @@
         {
             "tag": "avaluo_comercial_diferencias",
             "patterns": [
-                "en que se diferencia el inicio del tramite de avaluo comercial respecto a la version catastral en la seleccion de opciones"
+                "en que se diferencia el inicio del tramite de avaluo comercial respecto a la version catastral en la seleccion de opciones",
+                "en que se diferencia el avaluo comercial del catastral al iniciarlo",
+                "diferencia entre avaluo comercial y catastral en el menu",
+                "como distingo el inicio del avaluo comercial"
             ],
             "responses": [
                 "En la selección del menú desplegable dentro de Trámites y Servicios, donde se debe elegir expresamente la opción 'Avalúo Comercial'."
@@ -1581,7 +1601,10 @@
         {
             "tag": "avaluo_comercial_documentacionIncosistencias",
             "patterns": [
-                "si la documentacion en avaluo comercial presenta inconsistencias legales que accion toma el sistema"
+                "si la documentacion en avaluo comercial presenta inconsistencias legales que accion toma el sistema",
+                "que pasa si hay inconsistencias legales en el avaluo comercial",
+                "documentacion con inconsistencias en el avaluo comercial",
+                "que accion toma el sistema si el avaluo comercial tiene errores legales"
             ],
             "responses": [
                 "Se registran observaciones notificando las inconsistencias para su corrección o bien se procede al rechazo del trámite."
@@ -1590,7 +1613,10 @@
         {
             "tag": "cartografiaDivision_predios_asignacion",
             "patterns": [
-                "despues de trazar la linea de division que asignacion debe hacer el operador para cada fragmento resultante"
+                "despues de trazar la linea de division que asignacion debe hacer el operador para cada fragmento resultante",
+                "que asigno a cada fragmento tras dividir",
+                "que numero se pone a cada predio resultante de la division",
+                "como asigno los predios despues de trazar la division"
             ],
             "responses": [
                 "Debe 'Seleccionar el número de predio correspondiente a cada división'."
@@ -1599,7 +1625,10 @@
         {
             "tag": "cartografiaDivision_predios_capasHabilitadas",
             "patterns": [
-                "que capas deben estar habilitadas en la seccion IDC para ejecutar la division desde el modulo de cartografia"
+                "que capas deben estar habilitadas en la seccion IDC para ejecutar la division desde el modulo de cartografia",
+                "que capas se habilitan para dividir en cartografia",
+                "que capa activo para la division de predios en el mapa",
+                "capas necesarias para la division cartografica"
             ],
             "responses": [
                 "Únicamente la capa de 'Predios'."
@@ -1608,25 +1637,23 @@
         {
             "tag": "cartografiaDivision_predios_descripcion",
             "patterns": [
-                "que datos se deben describir al guardar la division dibujada en la cartografia"
+                "que datos se deben describir al guardar la division dibujada en la cartografia",
+                "que datos describo al guardar la division dibujada",
+                "que campos pide al guardar la division en cartografia",
+                "metadatos al guardar la division del predio"
             ],
             "responses": [
                 "El motivo de la creación, la persona Responsable y la Persona que autoriza."
             ]
         },
         {
-            "tag": "cartografiaDivision_predios_funcionAvanzada",
-            "patterns": [
-                "que funcion avanzada permite la division de predios sin dibujar a mano alzada segun el diagrama"
-            ],
-            "responses": [
-                "La 'Opción de división de predio por 'Rumbo y Distancia'."
-            ]
-        },
-        {
             "tag": "cartografiaDivision_predios_herramientas",
             "patterns": [
-                "que herramientas se seleccionan para realizar la division grafica de un predio"
+                "que herramientas se seleccionan para realizar la division grafica de un predio",
+                "que herramientas uso para dividir graficamente un predio",
+                "como divido un predio en el modulo de cartografia",
+                "pasos para la division grafica del predio",
+                "que selecciono para dividir un predio en el mapa"
             ],
             "responses": [
                 "Se activa la edición en 'Predio', se selecciona 'División de predios', se selecciona el predio a dividir y se utiliza la herramienta 'Dibujar Línea'."
@@ -1635,7 +1662,10 @@
         {
             "tag": "cartografiaDivision_predios_herramientasDibujo",
             "patterns": [
-                "que herramienta de dibujo se utiliza para cortar o fraccionar la geometria del predio seleccionado"
+                "que herramienta de dibujo se utiliza para cortar o fraccionar la geometria del predio seleccionado",
+                "con que herramienta corto el predio",
+                "que herramienta fracciona la geometria del predio",
+                "herramienta para trazar la linea de division"
             ],
             "responses": [
                 "La herramienta 'Dibujar Línea'."
@@ -1644,7 +1674,12 @@
         {
             "tag": "cartografiaDivision_predios_opciones",
             "patterns": [
-                "que opcion especial existe para dividir predios en cartografia"
+                "que opcion especial existe para dividir predios en cartografia",
+                "que funcion avanzada permite la division de predios sin dibujar a mano alzada segun el diagrama",
+                "que opcion especial hay para dividir predios",
+                "se puede dividir un predio por rumbo y distancia",
+                "division de predios sin dibujar a mano alzada",
+                "funcion avanzada para dividir predios en cartografia"
             ],
             "responses": [
                 "Opción de división de predio por 'Rumbo y Distancia'."
@@ -1653,7 +1688,12 @@
         {
             "tag": "cartografiaFusion_predios_capasActivas",
             "patterns": [
-                "cuales son las dos capas que se deben habilitar en la seccion IDC para la fusion cartografica"
+                "cuales son las dos capas que se deben habilitar en la seccion IDC para la fusion cartografica",
+                "que elementos de capas deben estar activos para la fusion de predios en cartografia",
+                "que capas habilito para fusionar en cartografia",
+                "cuales son las dos capas de la fusion cartografica",
+                "que elementos de capas activo para fusionar predios",
+                "capas necesarias para la fusion de predios en el mapa"
             ],
             "responses": [
                 "'Manzanas y Predios'"
@@ -1662,25 +1702,23 @@
         {
             "tag": "cartografiaFusion_predios_condiciones",
             "patterns": [
-                "cual es la condicion espacial obligatoria que deben cumplir los predios que se desean fusionar"
+                "cual es la condicion espacial obligatoria que deben cumplir los predios que se desean fusionar",
+                "que condicion espacial deben cumplir los predios a fusionar",
+                "se pueden fusionar predios separados",
+                "requisito de los predios para poder fusionarlos",
+                "los predios deben estar juntos para fusionar"
             ],
             "responses": [
                 "Deben ser 'dos o más predios contiguos'."
             ]
         },
         {
-            "tag": "cartografiaFusion_predios_elementosCapas",
-            "patterns": [
-                "que elementos de capas deben estar activos para la fusion de predios en cartografia"
-            ],
-            "responses": [
-                "'Manzanas y Predios'"
-            ]
-        },
-        {
             "tag": "cartografiaFusion_predios_menuEdicion",
             "patterns": [
-                "que herramienta especifica se selecciona en el menu de edicion tras activar la capa Predio"
+                "que herramienta especifica se selecciona en el menu de edicion tras activar la capa Predio",
+                "que herramienta selecciono en el menu de edicion para fusionar",
+                "donde esta la herramienta de fusion de predios",
+                "que opcion del menu de edicion uso para la fusion"
             ],
             "responses": [
                 "La herramienta de 'Fusión de predios'."
@@ -1689,25 +1727,24 @@
         {
             "tag": "cartografiaFusion_predios_metadatos",
             "patterns": [
-                "cuales son los metadatos requeridos al momento de guardar la fusion de las geometrias"
+                "cuales son los metadatos requeridos al momento de guardar la fusion de las geometrias",
+                "que metadatos pide al guardar la fusion",
+                "que datos registro al guardar la fusion de geometrias",
+                "campos obligatorios al guardar la fusion"
             ],
             "responses": [
                 "Motivo de la creación, Responsable y Persona que autoriza."
             ]
         },
         {
-            "tag": "cartografiaFusion_predios_prediosContinuos",
-            "patterns": [
-                "tras seleccionar los predios contiguos que decision critica sobre la cuenta catastral debe tomar el usuario"
-            ],
-            "responses": [
-                "Debe 'Seleccionar la cuenta predial que va a quedar asignada como principal'."
-            ]
-        },
-        {
             "tag": "cartografiaFusion_predios_resultantes",
             "patterns": [
-                "como se asigna la cuenta resultante en una fusion cartografica"
+                "como se asigna la cuenta resultante en una fusion cartografica",
+                "tras seleccionar los predios contiguos que decision critica sobre la cuenta catastral debe tomar el usuario",
+                "como se asigna la cuenta en una fusion cartografica",
+                "que cuenta predial queda como principal",
+                "que decision tomo sobre la cuenta al fusionar predios",
+                "cuenta predial principal de la fusion"
             ],
             "responses": [
                 "Se seleccionan dos o más predios contiguos a fusionar y se selecciona la cuenta predial que va a quedar asignada como principal."
@@ -1716,7 +1753,10 @@
         {
             "tag": "cartografia_vinculacion_confirmacion",
             "patterns": [
-                "que confirmacion exige la plataforma respecto a la cuenta predial durante la vinculacion"
+                "que confirmacion exige la plataforma respecto a la cuenta predial durante la vinculacion",
+                "que confirmacion pide la plataforma en la vinculacion",
+                "que se confirma sobre la cuenta predial al vincular",
+                "confirmacion de la propiedad en la vinculacion"
             ],
             "responses": [
                 "Exige 'Confirmamos la propiedad a la que se le asignará el trámite mediante la cuenta predial'."
@@ -1725,7 +1765,10 @@
         {
             "tag": "cartografia_vinculacion_eventoFinal",
             "patterns": [
-                "cual es el evento de Vinculación cartografica antes del Fin"
+                "cual es el evento de Vinculación cartografica antes del Fin",
+                "cual es el ultimo evento de la vinculacion cartografica",
+                "que sigue antes de finalizar la vinculacion",
+                "con que termina la vinculacion cartografica"
             ],
             "responses": [
                 "'Turnamos trámite'."
@@ -1734,7 +1777,10 @@
         {
             "tag": "cartografia_vinculacion_mapaGrafico",
             "patterns": [
-                "como relaciona el operador el mapa grafico con el tramite administrativo ingresado previamente"
+                "como relaciona el operador el mapa grafico con el tramite administrativo ingresado previamente",
+                "como relaciono el mapa con el tramite",
+                "como vinculo la geometria al tramite ingresado",
+                "como conecto el predio del mapa con el tramite"
             ],
             "responses": [
                 "Busca y selecciona el trámite en la sección correspondiente de cartografía y selecciona la geometría o predio para vincularlo al trámite."
@@ -1743,7 +1789,11 @@
         {
             "tag": "cartografia_vinculacion_pasos",
             "patterns": [
-                "cual es el primer paso dentro del modulo de cartografia para iniciar cualquier vinculacion cartografica"
+                "cual es el primer paso dentro del modulo de cartografia para iniciar cualquier vinculacion cartografica",
+                "primer paso de la vinculacion cartografica",
+                "por donde empiezo una vinculacion en cartografia",
+                "como inicio la vinculacion cartografica",
+                "que hago primero para vincular en cartografia"
             ],
             "responses": [
                 "'Localizamos el predio que se va a vincular al trámite creado'."
@@ -1752,43 +1802,38 @@
         {
             "tag": "cartografia_vinculacion_verificacion",
             "patterns": [
-                "que verificaciones debe validar el usuario antes de crear las observaciones finales"
+                "que verificaciones debe validar el usuario antes de crear las observaciones finales",
+                "que verifico antes de crear las observaciones finales",
+                "que valida el usuario antes de las observaciones en la vinculacion"
             ],
             "responses": [
                 "Comprobar que la información esté correcta, confirmar la vinculación y hacerse responsable de la misma en el sistema."
             ]
         },
         {
-            "tag": "traslado_dominio_capturarDatos",
-            "patterns": [
-                "al momento de capturar los datos del nuevo propietario en traslado de dominio que dato numerico/porcentual exige el sistema"
-            ],
-            "responses": [
-                "Exige ingresar los 'porcentajes de propiedad a un cierto porcentaje' (por ejemplo, el 100% o el 50%)."
-            ]
-        },
-        {
             "tag": "traslado_dominio_documentoEscaneo",
             "patterns": [
-                "que documento particular se firma y escanea al final del traslado de dominio"
+                "que documento particular se firma y escanea al final del traslado de dominio",
+                "cual es el nombre del documento con firmas integradas que debe ser escaneado para el traslado de dominio",
+                "que documento se firma y escanea en el traslado de dominio",
+                "el manifiesto del traslado de dominio",
+                "que archivo subo del traslado de dominio",
+                "documento con firmas del traslado de dominio"
             ],
             "responses": [
                 "Se imprime y escanea el Manifiesto (o acuse) con todas las firmas ya integradas."
             ]
         },
         {
-            "tag": "traslado_dominio_escaneo",
-            "patterns": [
-                "cual es el nombre del documento con firmas integradas que debe ser escaneado para el traslado de dominio"
-            ],
-            "responses": [
-                "El 'Escaneo del manifiesto con todas las firmas ya integradas'."
-            ]
-        },
-        {
             "tag": "traslado_dominio_especificacionRegistro",
             "patterns": [
-                "como se especifica la propiedad del inmueble en el registro de traslado de dominio"
+                "como se especifica la propiedad del inmueble en el registro de traslado de dominio",
+                "al momento de capturar los datos del nuevo propietario en traslado de dominio que dato numerico/porcentual exige el sistema",
+                "como se especifica la propiedad en el traslado de dominio",
+                "que porcentaje de propiedad se captura en el traslado de dominio",
+                "como asigno el porcentaje al nuevo propietario",
+                "se puede trasladar solo una parte de la propiedad",
+                "como agrego un nuevo propietario en traslado de dominio"
             ],
             "responses": [
                 "El sistema permite agregar un nuevo propietario ingresando un porcentaje total (100%) o asignando un porcentaje de propiedad específico (ej. 50%) según la transacción."
@@ -1797,7 +1842,12 @@
         {
             "tag": "traslado_dominio_informacionIncorrecta",
             "patterns": [
-                "en la revision documental de traslado de dominio que sucede si la informacion es declarada incorrecta"
+                "en la revision documental de traslado de dominio que sucede si la informacion es declarada incorrecta",
+                "que sucede en traslado de dominio si la informacion resulta incorrecta en la verificacion",
+                "que pasa si la informacion del traslado de dominio es incorrecta",
+                "se cancela el traslado de dominio si los datos estan mal",
+                "que sucede si falla la verificacion del traslado de dominio",
+                "documentacion incorrecta en traslado de dominio"
             ],
             "responses": [
                 "El trámite se cancela o el trámite 'regresa a Traslado de Dominio' para subsanación."
@@ -1806,7 +1856,27 @@
         {
             "tag": "traslado_dominio_pasos",
             "patterns": [
-                "cuales son las etapas iniciales para registrar un traslado de dominio"
+                "cuales son las etapas iniciales para registrar un traslado de dominio",
+                "como hago un traslado de dominio",
+                "quiero tramitar un traslado de dominio",
+                "requisitos del traslado de dominio",
+                "etapas del traslado de dominio",
+                "procedimiento del traslado de dominio",
+                "tramite de traslado de dominio",
+                "necesito hacer un traslado de dominio",
+                "traslado de dominio pasos",
+                "como se registra un cambio de propietario",
+                "como cambio el propietario de un predio",
+                "quiero poner el predio a nombre de otra persona",
+                "como paso un terreno a otro dueño",
+                "cambio de dueño de un predio",
+                "quiero pasar mi casa a nombre de mi hijo",
+                "transferir la propiedad de un inmueble",
+                "pasos para registrar un traslado de dominio",
+                "que pasos sigo en un traslado de dominio",
+                "cuales son las fases del traslado de dominio",
+                "lista de pasos del traslado de dominio",
+                "todos los pasos del traslado de dominio"
             ],
             "responses": [
                 "1. Ingresar a la plataforma del Sistema de Gestión Catastral, módulo 'Trámites y servicios'.\n 2. Seleccionar el municipio correspondiente.\n 3. Seleccionar 'Traslado de Dominio' y hacer clic en 'Nuevo Trámite'.\n 4. Agregar datos del promovente, datos del predio y cargar los documentos requeridos al expediente.\n 5. Agregar un nuevo propietario e ingresar los porcentajes de propiedad correspondientes."
@@ -1815,7 +1885,11 @@
         {
             "tag": "traslado_dominio_pasosFinales",
             "patterns": [
-                "Cuáles son los pasos finales para concluir el Traslado de Dominio en el sistema"
+                "Cuáles son los pasos finales para concluir el Traslado de Dominio en el sistema",
+                "pasos finales del traslado de dominio",
+                "como termina el traslado de dominio",
+                "que hago al final del traslado de dominio",
+                "como se finaliza el traslado de dominio en el sistema"
             ],
             "responses": [
                 "Se sube el archivo escaneado del manifiesto firmado, se agregan las observaciones finales en el sistema y se marca el trámite como Finalizado."
@@ -1824,7 +1898,11 @@
         {
             "tag": "traslado_dominio_primerPaso",
             "patterns": [
-                "cual es el primer paso en la plataforma para comenzar un traslado de dominio"
+                "cual es el primer paso en la plataforma para comenzar un traslado de dominio",
+                "cual es el primer paso del traslado de dominio",
+                "por donde empiezo el traslado de dominio",
+                "donde inicio un traslado de dominio",
+                "en que modulo empieza el traslado de dominio"
             ],
             "responses": [
                 "'Ingreso a la plataforma de Sistema de Gestión Catastral' e ingresar al módulo de 'Trámites y servicios'"
@@ -1833,19 +1911,13 @@
         {
             "tag": "traslado_dominio_secuenciaEscaneo",
             "patterns": [
-                "cual es la secuencia completa del subproceso de escaneo de documentos en lraslado de dominio?"
+                "cual es la secuencia completa del subproceso de escaneo de documentos en lraslado de dominio?",
+                "secuencia del escaneo de documentos en traslado de dominio",
+                "subproceso de escaneo del traslado de dominio",
+                "cuales son los pasos del escaneo en traslado de dominio"
             ],
             "responses": [
                 "1. Inicio.\n 2. Ingresar a Trámites y servicios.\n 3. Buscar trámite por número de folio.\n 4. Seleccionar el trámite correspondiente.\n 5. Escaneo del manifiesto con firmas integradas.\n 6. Subir el archivo escaneado.\n 7. Agregar la observación\n 8. Finalizar (Fin)."
-            ]
-        },
-        {
-            "tag": "traslado_dominio_verificacionIncorrecta",
-            "patterns": [
-                "que sucede en traslado de dominio si la informacion resulta incorrecta en la verificacion"
-            ],
-            "responses": [
-                "Se cancela el trámite o se reasigna a la etapa previa para subsanar los datos antes de proceder."
             ]
         }
     ]

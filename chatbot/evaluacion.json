@@ -68,6 +68,29 @@
         {"pregunta": "la plataforma no me deja entrar", "esperado": "problema_tecnico_sistema"},
         {"pregunta": "me sale un error cuando guardo", "esperado": "problema_tecnico_sistema"},
 
+        {"pregunta": "cuales son los pasos del traslado de dominio", "esperado": "traslado_dominio_pasos"},
+        {"pregunta": "como registro un traslado de dominio", "esperado": "traslado_dominio_pasos"},
+        {"pregunta": "que documento se escanea al final del traslado de dominio", "esperado": "traslado_dominio_documentoEscaneo"},
+        {"pregunta": "que pasa si los datos del traslado de dominio estan mal", "esperado": "traslado_dominio_informacionIncorrecta"},
+        {"pregunta": "como se reparten los porcentajes de propiedad", "esperado": "traslado_dominio_especificacionRegistro"},
+        {"pregunta": "como concluyo el traslado de dominio", "esperado": "traslado_dominio_pasosFinales"},
+
+        {"pregunta": "que capas activo para dar de alta un predio", "esperado": "alta_predio_capas"},
+        {"pregunta": "como dibujo un predio manzanero nuevo", "esperado": "alta_predio_pasosClave"},
+        {"pregunta": "con que herramienta trazo el poligono del predio", "esperado": "alta_predio_herramientaGeometrica"},
+        {"pregunta": "que datos me pide al guardar el poligono del predio", "esperado": "alta_predio_guardarPoligono"},
+
+        {"pregunta": "que capas necesito para dividir en cartografia", "esperado": "cartografiaDivision_predios_capasHabilitadas"},
+        {"pregunta": "con que herramienta corto la geometria del predio", "esperado": "cartografiaDivision_predios_herramientasDibujo"},
+        {"pregunta": "se puede dividir por rumbo y distancia", "esperado": "cartografiaDivision_predios_opciones"},
+
+        {"pregunta": "que capas habilito para la fusion cartografica", "esperado": "cartografiaFusion_predios_capasActivas"},
+        {"pregunta": "que condicion deben cumplir los predios a fusionar", "esperado": "cartografiaFusion_predios_condiciones"},
+        {"pregunta": "que cuenta queda como principal al fusionar", "esperado": "cartografiaFusion_predios_resultantes"},
+
+        {"pregunta": "cual es el primer paso de la vinculacion cartografica", "esperado": "cartografia_vinculacion_pasos"},
+        {"pregunta": "que datos del solicitante pide el avaluo comercial", "esperado": "avaluo_comercial_datosSolicitante"},
+
         {"pregunta": "hola buenas tardes", "esperado": "saludo"},
         {"pregunta": "muchas gracias por la ayuda", "esperado": "agradecimiento"},
         {"pregunta": "hasta luego", "esperado": "despedida"},
