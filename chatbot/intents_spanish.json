@@ -524,14 +524,115 @@
         "responses": ["Generar e imprimir el dictamen/acuse de entrega, recolectar firmas y subir el documento escaneado al sistema."]
         },
         {
-        "tag": "avaluo_catastral_",
+        "tag": "avaluo_comercial_diferencias",
+        "patterns": ["en que se diferencia el inicio del tramite de avaluo comercial respecto a la version catastral en la seleccion de opciones"],
+        "responses": ["En la selección del menú desplegable dentro de Trámites y Servicios, donde se debe elegir expresamente la opción 'Avalúo Comercial'."]
+        },
+        {
+        "tag": "avaluo_comercial_datosSolicitante",
+        "patterns": ["que datos del solicitante son indispensables para abrir el expediente de avaluo comercial"],
+        "responses": ["Los datos completos del promovente y la localización exacta del predio objeto del avalúo."]
+        },
+        {
+        "tag": "avaluo_comercial_asignados",
+        "patterns": ["que perfil tecnico se encarga de corroborar los deslindes y valores del terreno en el mapa para el avaluo comercial"],
+        "responses": ["El personal asignado al área de Cartografía mediante la vinculación e integración de capas."]
+        },
+        {
+        "tag": "avaluo_comercial_documentacionIncosistencias",
+        "patterns": ["si la documentacion en avaluo comercial presenta inconsistencias legales que accion toma el sistema"],
+        "responses": ["Se registran observaciones notificando las inconsistencias para su corrección o bien se procede al rechazo del trámite."]
+        },
+        {
+        "tag": "avaluo_comercial_comprobante",
+        "patterns": ["que comprobante debe adjuntarse obligatoriamente para cerrar el expediente digital de un avaluo comercial"],
+        "responses": ["El acuse de entrega o dictamen con firmas autógrafas/sellos escaneado y subido al módulo."]
+        },
+        {
+        "tag": "traslado_dominio_pasos",
+        "patterns": ["cuales son las etapas iniciales para registrar un traslado de dominio"],
+        "responses": ["1. Ingresar a la plataforma del Sistema de Gestión Catastral, módulo 'Trámites y servicios'.\n 2. Seleccionar el municipio correspondiente.\n 3. Seleccionar 'Traslado de Dominio' y hacer clic en 'Nuevo Trámite'.\n 4. Agregar datos del promovente, datos del predio y cargar los documentos requeridos al expediente.\n 5. Agregar un nuevo propietario e ingresar los porcentajes de propiedad correspondientes."]
+        },
+        {
+        "tag": "traslado_dominio_especificacionRegistro",
+        "patterns": ["como se especifica la propiedad del inmueble en el registro de traslado de dominio"],
+        "responses": ["El sistema permite agregar un nuevo propietario ingresando un porcentaje total (100%) o asignando un porcentaje de propiedad específico (ej. 50%) según la transacción."]
+        },
+        {
+        "tag": "traslado_dominio_verificacionIncorrecta",
+        "patterns": ["que sucede en traslado de dominio si la informacion resulta incorrecta en la verificacion"],
+        "responses": ["Se cancela el trámite o se reasigna a la etapa previa para subsanar los datos antes de proceder."]
+        },
+        {
+        "tag": "traslado_dominio_documentoEscaneo",
+        "patterns": ["que documento particular se firma y escanea al final del traslado de dominio"],
+        "responses": ["Se imprime y escanea el Manifiesto (o acuse) con todas las firmas ya integradas."]
+        },
+        {
+        "tag": "traslado_dominio_pasosFinales",
+        "patterns": ["Cuáles son los pasos finales para concluir el Traslado de Dominio en el sistema"],
+        "responses": ["Se sube el archivo escaneado del manifiesto firmado, se agregan las observaciones finales en el sistema y se marca el trámite como Finalizado."]
+        },
+        {
+        "tag": "traslado_dominio_primerPaso",
+        "patterns": ["cual es el primer paso en la plataforma para comenzar un traslado de dominio"],
+        "responses": ["'Ingreso a la plataforma de Sistema de Gestión Catastral' e ingresar al módulo de 'Trámites y servicios'"]
+        },
+        {
+        "tag": "traslado_dominio_capturarDatos",
+        "patterns": ["al momento de capturar los datos del nuevo propietario en traslado de dominio que dato numerico/porcentual exige el sistema"],
+        "responses": ["Exige ingresar los 'porcentajes de propiedad a un cierto porcentaje' (por ejemplo, el 100% o el 50%)."]
+        },
+        {
+        "tag": "traslado_dominio_informacionIncorrecta",
+        "patterns": ["en la revision documental de traslado de dominio que sucede si la informacion es declarada incorrecta"],
+        "responses": ["El trámite se cancela o el trámite 'regresa a Traslado de Dominio' para subsanación."]
+        },
+        {
+        "tag": "traslado_dominio_escaneo",
+        "patterns": ["cual es el nombre del documento con firmas integradas que debe ser escaneado para el traslado de dominio"],
+        "responses": ["El 'Escaneo del manifiesto con todas las firmas ya integradas'."]
+        },
+        {
+        "tag": "traslado_dominio_",
+        "patterns": ["cual es la secuencia completa del subproceso de escaneo de documentos en lraslado de dominio?"],
+        "responses": ["1. Inicio.\n 2. Ingresar a Trámites y servicios.\n 3. Buscar trámite por número de folio.\n 4. Seleccionar el trámite correspondiente.\n 5. Escaneo del manifiesto con firmas integradas.\n 6. Subir el archivo escaneado.\n 7. Agregar la observación\n 8. Finalizar (Fin)."]
+        },
+        {
+        "tag": "traslado_dominio_",
         "patterns": [""],
         "responses": [""]
         },
-
-
-
-
+        {
+        "tag": "traslado_dominio_",
+        "patterns": [""],
+        "responses": [""]
+        },
+        {
+        "tag": "traslado_dominio_",
+        "patterns": [""],
+        "responses": [""]
+        },
+        {
+        "tag": "traslado_dominio_",
+        "patterns": [""],
+        "responses": [""]
+        },
+        {
+        "tag": "traslado_dominio_",
+        "patterns": [""],
+        "responses": [""]
+        },
+        {
+        "tag": "traslado_dominio_",
+        "patterns": [""],
+        "responses": [""]
+        },
+        {
+        "tag": "traslado_dominio_",
+        "patterns": [""],
+        "responses": [""]
+        },
 
 
         {
