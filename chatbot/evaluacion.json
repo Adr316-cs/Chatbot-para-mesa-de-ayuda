@@ -1,0 +1,82 @@
+{
+    "_comentario": "Set de evaluacion. Las preguntas estan redactadas como las haria un usuario real y NINGUNA es copia de un patron de entrenamiento: si lo fueran, se estaria midiendo memorizacion en vez de generalizacion. 'esperado' en null significa que el bot NO debe responder (debe caer en fallback). Ejecutar con: python evaluar.py",
+    "casos": [
+        {"pregunta": "como saco la cedula unica catastral", "esperado": "cedula_catastral_pasos"},
+        {"pregunta": "que necesito para tramitar una cedula catastral", "esperado": "cedula_catastral_pasos"},
+        {"pregunta": "quiero iniciar el tramite de cedula unica", "esperado": "cedula_catastral_pasos"},
+        {"pregunta": "pasos de la emision de cedula unica catastral", "esperado": "cedula_catastral_pasos"},
+        {"pregunta": "con que termina el escaneo de documentos de la cedula", "esperado": "cedula_catastral_escaneo_documentos"},
+        {"pregunta": "que hago si los datos de la cedula estan mal", "esperado": "cedula_catastral_informacion_incorrecta"},
+
+        {"pregunta": "como tramito el padron unico catastral", "esperado": "emision_padron_unico_catastral_pasos"},
+        {"pregunta": "pasos para emitir el padron unico", "esperado": "emision_padron_unico_catastral_pasos"},
+        {"pregunta": "que dato extra pide el padron unico que no pide la cedula", "esperado": "emision_padron_unico_catastral_parametroAdicional"},
+        {"pregunta": "cuando se rechaza el padron unico catastral", "esperado": "emision_padron_unico_catastral_finalizadoRechazo"},
+        {"pregunta": "puedo reutilizar un promovente ya registrado", "esperado": "emision_padron_unico_catastral_promoventes"},
+
+        {"pregunta": "como tramito una constancia de inscripcion", "esperado": "constancia_inscripcion_pasos"},
+        {"pregunta": "que se necesita para la constancia de inscripcion", "esperado": "constancia_inscripcion_pasos"},
+        {"pregunta": "que boton presiono para empezar la constancia", "esperado": "constancia_inscripcion_botonInterfaz"},
+        {"pregunta": "que credenciales piden en la constancia de inscripcion", "esperado": "constancia_inscripcion_aunteticacion"},
+
+        {"pregunta": "como certifico un documento", "esperado": "certificacion_documentos_pasos"},
+        {"pregunta": "que piden para la certificacion de documentos", "esperado": "certificacion_documentos_pasos"},
+        {"pregunta": "cual es el ultimo paso de la certificacion de documentos", "esperado": "certificacion_documentos_accionOperativa"},
+        {"pregunta": "que dos busquedas se hacen en certificacion de documentos", "esperado": "certificacion_documentos_busquedasParalelas"},
+
+        {"pregunta": "como divido un predio", "esperado": "division_predios_pasos"},
+        {"pregunta": "quiero dividir mi terreno en dos partes", "esperado": "division_predios_pasos"},
+        {"pregunta": "cuales son las etapas de la division de predios", "esperado": "division_predios_pasos"},
+        {"pregunta": "que datos capturo al elaborar una division", "esperado": "division_predios_capturarDatos"},
+        {"pregunta": "como se vincula la cartografia en una division", "esperado": "division_predios_vinculacionCartografica"},
+
+        {"pregunta": "como fusiono dos predios", "esperado": "fusion_predios_pasos"},
+        {"pregunta": "que pasos sigo para una fusion de predios", "esperado": "fusion_predios_pasos"},
+        {"pregunta": "quiero unir dos lotes en uno solo", "esperado": "fusion_predios_pasos"},
+        {"pregunta": "como termina el expediente de una fusion", "esperado": "fusion_predios_expedienteDigital"},
+        {"pregunta": "como busco un tramite de fusion en cartografia", "esperado": "fusion_predios_localizarTramite"},
+
+        {"pregunta": "que tipos de predio puedo inscribir", "esperado": "inscripcion_predio_urbanoRustico_opciones"},
+        {"pregunta": "urbano o rustico al inscribir un predio", "esperado": "inscripcion_predio_urbanoRustico_opciones"},
+        {"pregunta": "que datos se llenan al elaborar la inscripcion", "esperado": "inscripcion_predio_urbanoRustico_informacionElaboracion"},
+        {"pregunta": "donde activo la capa de predios", "esperado": "inscripcion_predio_urbanoRustico_prediosCartografia"},
+
+        {"pregunta": "como doy de alta un levantamiento topografico", "esperado": "levantamiento_topograficoDeslinde_pasos"},
+        {"pregunta": "pasos del deslinde y levantamiento topografico", "esperado": "levantamiento_topograficoDeslinde_pasos"},
+        {"pregunta": "que se hace en la elaboracion del levantamiento topografico", "esperado": "levantamiento_topograficoDeslinde_elaboracion"},
+
+        {"pregunta": "como actualizo los datos de un predio", "esperado": "actualizacion_predios_pasos"},
+        {"pregunta": "quiero hacer una actualizacion de predios", "esperado": "actualizacion_predios_pasos"},
+        {"pregunta": "que campos se modifican en la actualizacion", "esperado": "actualizacion_predios_camposActualizacion"},
+        {"pregunta": "cuando se activa la vinculacion cartografica en actualizacion", "esperado": "actualizacion_predios_vinculacionCartografica"},
+
+        {"pregunta": "como solicito un avaluo catastral", "esperado": "avaluo_catastral_pasosAlta"},
+        {"pregunta": "quiero dar de alta un avaluo catastral", "esperado": "avaluo_catastral_pasosAlta"},
+        {"pregunta": "que se calcula en el avaluo catastral", "esperado": "avaluo_catastral_elementosTecnicos"},
+        {"pregunta": "como termina el avaluo catastral", "esperado": "avaluo_catastral_finalizarTramite"},
+
+        {"pregunta": "como pido un avaluo comercial", "esperado": "avaluo_comercial_procesoSolicitud"},
+        {"pregunta": "que documentos lleva el avaluo comercial", "esperado": "avaluo_comercial_documentos"},
+        {"pregunta": "como cierro el expediente de avaluo comercial", "esperado": "avaluo_comercial_requisitoCerrar"},
+
+        {"pregunta": "me rechazaron la solicitud", "esperado": "problema_tramite_rechazado"},
+        {"pregunta": "por que devolvieron mi expediente", "esperado": "problema_expediente_regresado"},
+        {"pregunta": "mi tramite lleva semanas sin moverse", "esperado": "problema_tramite_detenido"},
+        {"pregunta": "donde consulto en que va mi tramite", "esperado": "problema_no_encuentro_tramite"},
+        {"pregunta": "el dueño del predio no esta en el sistema", "esperado": "problema_propietario_no_aparece"},
+        {"pregunta": "el predio no esta dibujado", "esperado": "problema_predio_sin_geometria"},
+        {"pregunta": "la plataforma no me deja entrar", "esperado": "problema_tecnico_sistema"},
+        {"pregunta": "me sale un error cuando guardo", "esperado": "problema_tecnico_sistema"},
+
+        {"pregunta": "hola buenas tardes", "esperado": "saludo"},
+        {"pregunta": "muchas gracias por la ayuda", "esperado": "agradecimiento"},
+        {"pregunta": "hasta luego", "esperado": "despedida"},
+
+        {"pregunta": "cual es el clima de hoy", "esperado": null},
+        {"pregunta": "quien gano el partido de ayer", "esperado": null},
+        {"pregunta": "cuanto cuesta un boleto de avion", "esperado": null},
+        {"pregunta": "me gusta el futbol los domingos", "esperado": null},
+        {"pregunta": "asdkjh qwe zzz", "esperado": null},
+        {"pregunta": "receta de pastel de chocolate", "esperado": null}
+    ]
+}

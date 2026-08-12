@@ -1,0 +1,31 @@
+# Credenciales - NUNCA subir al repositorio
+credenciales.json
+*-service-account.json
+.env
+
+# Tickets: llevan datos personales de usuarios (nombre, correo, telefono).
+# No deben acabar en el repositorio.
+tickets.csv
+
+# Entorno virtual
+venv/
+.venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Artefactos del modelo (se regeneran con: python training_chatbot.py)
+*.pkl
+*.h5
+*.keras
+
+# NLTK
+nltk_data/
+
+# Editores / SO
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

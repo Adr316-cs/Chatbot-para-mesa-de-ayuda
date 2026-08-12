@@ -2,111 +2,661 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#05004A">
   <title>Chatbot MAI</title>
+  <!-- Icono embebido: evita el 404 de /favicon.ico sin peticion extra. -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2305004A'/><rect x='7' y='12' width='18' height='13' rx='4' fill='none' stroke='%23fff' stroke-width='2'/><circle cx='13' cy='18' r='1.7' fill='%23fff'/><circle cx='19' cy='18' r='1.7' fill='%23fff'/><path d='M16 12V8' stroke='%23fff' stroke-width='2' stroke-linecap='round'/></svg>">
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #f0f0f0; margin: 0; }
+    /* ---------------------------------------------------------------
+       Tokens de diseño. Cambiar un color aquí lo cambia en toda la app.
+       --------------------------------------------------------------- */
+    :root {
+      --marca: #05004A;
+      --marca-clara: #2a2580;
+      --marca-texto: #ffffff;
+
+      --fondo: #eef0f6;
+      --superficie: #ffffff;
+      --superficie-2: #f2f4fa;
+      --borde: #dde1ed;
+
+      --texto: #171a26;
+      --texto-suave: #666d80;
+
+      --burbuja-bot: #f2f4fa;
+      --burbuja-bot-texto: #171a26;
+      --burbuja-user: #05004A;
+      --burbuja-user-texto: #ffffff;
+
+      --error-fondo: #fdeceb;
+      --error-texto: #9b1c1c;
+      --error-borde: #f5c6c4;
+
+      /* Texto de los botones de opcion. Token propio y no --marca-clara:
+         en modo oscuro el color de marca no contrasta sobre fondo oscuro. */
+      --chip-texto: #2a2580;
+
+      --exito: #12b76a;
+
+      --radio: 18px;
+      --radio-sm: 10px;
+      --sombra: 0 1px 2px rgba(16, 20, 40, .05), 0 8px 24px rgba(16, 20, 40, .06);
+      --sombra-sm: 0 1px 2px rgba(16, 20, 40, .08);
+
+      --ancho: 780px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --marca: #1b1666;
+        --marca-clara: #4b44b8;
+        --fondo: #0d0f16;
+        --superficie: #161926;
+        --superficie-2: #1f2333;
+        --borde: #2a2f42;
+        --texto: #e9ebf2;
+        --texto-suave: #9aa1b6;
+        --burbuja-bot: #1f2333;
+        --burbuja-bot-texto: #e9ebf2;
+        --burbuja-user: #4b44b8;
+        --burbuja-user-texto: #ffffff;
+        --error-fondo: #3a1a1a;
+        --error-texto: #ffb4b0;
+        --error-borde: #5c2a2a;
+        --chip-texto: #c3bdff;
+        --sombra: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .35);
+        --sombra-sm: 0 1px 2px rgba(0, 0, 0, .35);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* App de altura completa. Antes el chat tenia height:500px fijo, que en
+       movil dejaba una cajita diminuta en medio de la pantalla.
+       100dvh sigue la altura real del viewport cuando el navegador movil
+       muestra u oculta su barra de direcciones. */
+    .app {
+      height: 100vh;
+      height: 100dvh;
+      max-width: var(--ancho);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      background: var(--superficie);
+      box-shadow: var(--sombra);
+    }
+
+    /* ----------------------------- Encabezado ----------------------------- */
     .header {
-      background: #05004A;
-      color: white;
-      padding: 15px;
+      flex: 0 0 auto;
       display: flex;
       align-items: center;
-      position: relative;
+      gap: 12px;
+      padding: 12px 16px;
+      padding-top: calc(12px + env(safe-area-inset-top));
+      background: var(--marca);
+      color: var(--marca-texto);
     }
-    .header img {
-      width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;
+
+    .header__avatar {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .14);
+      display: grid;
+      place-items: center;
     }
-    .header h1 {
-      font-size: 20px;
+    .header__avatar svg { width: 24px; height: 24px; display: block; }
+
+    .header__info { min-width: 0; }
+
+    /* Acceso al menu siempre visible, sin depender de encontrar el chip
+       entre los mensajes ni de haber hecho scroll. */
+    .header__menu {
+      margin-left: auto;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 40px;
+      padding: 8px 15px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      background: rgba(255, 255, 255, .15);
+      border: 1px solid rgba(255, 255, 255, .24);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background .15s ease, transform .1s ease;
+    }
+    .header__menu:hover { background: rgba(255, 255, 255, .28); }
+    .header__menu:active { transform: scale(.96); }
+    .header__menu:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+    .header__menu svg { width: 17px; height: 17px; display: block; }
+
+    .header__title {
       margin: 0;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: .2px;
     }
 
-    .chat-container { 
-      max-width: 500px; 
-      margin: 20px auto; 
-      background: white; 
-      border-radius: 10px; 
-      padding: 15px; 
-      height: 500px; 
-      overflow-y: auto; 
+    .header__status {
+      margin: 2px 0 0;
+      font-size: 12px;
+      color: rgba(255, 255, 255, .75);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .bubble { 
-      display: block;
-      padding: 10px 15px; 
-      border-radius: 15px; 
-      margin: 10px; 
-      max-width: 50%; 
-      width: fit-content; 
-      word-wrap: break-word; 
-      animation: fadeInUp 0.4s ease;
+    .header__dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--exito);
+      flex-shrink: 0;
     }
-    .user { background: #05004A; color: white; margin-left: auto; }
-    .bot { background: #AAAACA; color: #1a1a1a; margin-right: auto; }
-    .timestamp { font-size: 11px; color: #666; margin-top: 3px; text-align: right; }
 
-    .input-container { display: flex; max-width: 500px; margin: 10px auto; }
-    .input-container input { flex: 1; padding: 10px; border-radius: 20px; border: 1px solid #ccc; }
-    .input-container button { background: #05004A; color: white; border: none; border-radius: 50%; width: 40px; height: 40px; margin-left: 10px; cursor: pointer; }
+    /* ------------------------------- Chat -------------------------------- */
+    .chat {
+      flex: 1 1 auto;
+      position: relative;   /* referencia para offsetTop al hacer scroll */
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      padding: 18px 16px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .msg {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+      margin-bottom: 10px;
+      animation: aparecer .35s cubic-bezier(.2, .7, .3, 1);
+    }
+    .msg--user { flex-direction: row-reverse; }
+
+    .msg__avatar {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--marca);
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+    }
+    .msg__avatar svg { width: 18px; height: 18px; display: block; }
+
+    .msg__col { min-width: 0; max-width: min(80%, 560px); }
+    .msg--user .msg__col { align-items: flex-end; display: flex; flex-direction: column; }
+
+    .msg__bubble {
+      padding: 11px 15px;
+      border-radius: var(--radio);
+      line-height: 1.55;
+      font-size: 15px;
+      word-wrap: break-word;
+      overflow-wrap: anywhere;
+      background: var(--burbuja-bot);
+      color: var(--burbuja-bot-texto);
+      border-bottom-left-radius: 6px;
+    }
+    .msg--user .msg__bubble {
+      background: var(--burbuja-user);
+      color: var(--burbuja-user-texto);
+      border-bottom-left-radius: var(--radio);
+      border-bottom-right-radius: 6px;
+    }
+    .msg--error .msg__bubble {
+      background: var(--error-fondo);
+      color: var(--error-texto);
+      border: 1px solid var(--error-borde);
+    }
+
+    .msg__time {
+      font-size: 11px;
+      color: var(--texto-suave);
+      margin: 4px 6px 0;
+    }
+    .msg--user .msg__time { text-align: right; }
+
+    /* ------------------------- Botones de opciones -------------------------
+       Se elige haciendo clic para que los numeros no compitan con los pasos
+       numerados de las respuestas. */
+    .opciones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 14px 40px;
+      animation: aparecer .35s cubic-bezier(.2, .7, .3, 1);
+    }
+
+    .opcion {
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.3;
+      color: var(--chip-texto);
+      background: var(--superficie);
+      border: 1.5px solid var(--borde);
+      border-radius: 999px;
+      padding: 9px 15px;
+      min-height: 40px;          /* objetivo tactil comodo */
+      cursor: pointer;
+      text-align: left;
+      transition: background .15s ease, border-color .15s ease, color .15s ease, transform .1s ease;
+    }
+    .opcion:hover { border-color: var(--marca-clara); background: var(--superficie-2); }
+    .opcion:active { transform: scale(.97); }
+    .opcion:focus-visible { outline: 3px solid var(--marca-clara); outline-offset: 2px; }
+    .opcion[disabled] { opacity: .45; cursor: default; }
+
+    /* --------------------------- Escribiendo... --------------------------- */
+    .typing { display: flex; gap: 4px; align-items: center; padding: 4px 2px; }
+    .typing span {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--texto-suave);
+      animation: parpadeo 1.3s infinite;
+    }
+    .typing span:nth-child(2) { animation-delay: .18s; }
+    .typing span:nth-child(3) { animation-delay: .36s; }
+
+    /* ----------------------------- Redaccion ------------------------------ */
+    .composer {
+      flex: 0 0 auto;
+      border-top: 1px solid var(--borde);
+      background: var(--superficie);
+      padding: 10px 12px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    }
+
+    .composer__form { display: flex; gap: 10px; align-items: flex-end; }
+
+    .composer__input {
+      flex: 1 1 auto;
+      min-width: 0;
+      font-family: inherit;
+      font-size: 16px;      /* 16px evita que iOS haga zoom al enfocar */
+      line-height: 1.4;
+      color: var(--texto);
+      background: var(--superficie-2);
+      border: 1.5px solid var(--borde);
+      border-radius: 22px;
+      padding: 11px 16px;
+      resize: none;
+      max-height: 120px;
+      overflow-y: auto;
+    }
+    .composer__input::placeholder { color: var(--texto-suave); }
+    .composer__input:focus {
+      outline: none;
+      border-color: var(--marca-clara);
+      background: var(--superficie);
+    }
+
+    .composer__send {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: var(--marca);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: background .15s ease, transform .1s ease, opacity .15s ease;
+    }
+    .composer__send svg { width: 20px; height: 20px; display: block; }
+    .composer__send:hover:not(:disabled) { background: var(--marca-clara); }
+    .composer__send:active:not(:disabled) { transform: scale(.93); }
+    .composer__send:focus-visible { outline: 3px solid var(--marca-clara); outline-offset: 2px; }
+    .composer__send:disabled { opacity: .45; cursor: default; }
+
+    /* Solo para lectores de pantalla */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes parpadeo {
+      0%, 60%, 100% { opacity: .25; }
+      30%           { opacity: 1; }
+    }
+
+    /* Respeta a quien pidio menos movimiento en su sistema */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+
+    /* ---------------------------- Pantalla grande -------------------------
+       En un monitor ancho una columna de 780px con texto de 15px se ve
+       diminuta y perdida. Se ensancha el contenedor, crece la tipografia y se
+       marcan los costados para que la app se lea como una superficie y no
+       como una franja flotando en el vacio. */
+    @media (min-width: 1024px) {
+      :root { --ancho: 980px; }
+
+      .app {
+        border-left: 1px solid var(--borde);
+        border-right: 1px solid var(--borde);
+      }
+
+      .header { padding: 15px 22px; }
+      .header__avatar { width: 44px; height: 44px; }
+      .header__avatar svg { width: 26px; height: 26px; }
+      .header__title { font-size: 19px; }
+      .header__status { font-size: 13px; }
+      .header__menu { font-size: 15px; padding: 9px 17px; min-height: 42px; }
+
+      .chat { padding: 24px 24px 10px; }
+
+      .msg { gap: 12px; }
+      .msg__avatar { width: 34px; height: 34px; }
+      .msg__avatar svg { width: 20px; height: 20px; }
+      .msg__col { max-width: min(78%, 640px); }
+      .msg__bubble { font-size: 16px; line-height: 1.6; padding: 13px 18px; }
+      .msg__time { font-size: 12px; }
+
+      .opciones { margin-left: 46px; gap: 9px; }
+      .opcion { font-size: 15px; padding: 11px 17px; min-height: 44px; }
+
+      .composer { padding: 14px 20px; }
+      .composer__input { font-size: 16px; padding: 13px 18px; }
+      .composer__send { width: 48px; height: 48px; }
+      .composer__send svg { width: 22px; height: 22px; }
+    }
+
+    /* En monitores muy anchos se le da mas presencia. Las burbujas siguen
+       topadas para que las lineas no se vuelvan incomodas de leer. */
+    @media (min-width: 1600px) {
+      :root { --ancho: 1200px; }
+      .msg__col { max-width: min(72%, 700px); }
+      .chat { padding: 28px 32px 12px; }
+      .header { padding: 17px 28px; }
+      .composer { padding: 16px 26px; }
+    }
+
+    /* ------------------------------ Movil -------------------------------- */
+    @media (max-width: 640px) {
+      .app { box-shadow: none; }
+      .chat { padding: 14px 12px 6px; }
+      .msg__col { max-width: 86%; }
+      .msg__bubble { font-size: 15px; padding: 10px 14px; }
+      .opciones { margin-left: 0; gap: 7px; }
+      .opcion { font-size: 13.5px; padding: 9px 13px; }
+      .header__title { font-size: 16px; }
+    }
+
+    @media (max-width: 430px) {
+      /* Solo el icono: el texto "Menú" no cabe junto al titulo. */
+      .header__menu span { display: none; }
+      .header__menu { width: 40px; padding: 8px; justify-content: center; }
+    }
+
+    @media (max-width: 380px) {
+      .msg__avatar { display: none; }
+      .msg__col { max-width: 92%; }
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="logo">
-    <h1>Chatbot MAI</h1>
-  </div>
+  <div class="app">
+    <header class="header">
+      <div class="header__avatar" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="8" width="16" height="12" rx="3"></rect>
+          <path d="M12 8V4"></path><circle cx="12" cy="3" r="1.4" fill="currentColor"></circle>
+          <circle cx="9" cy="13.5" r="1.2" fill="currentColor" stroke="none"></circle>
+          <circle cx="15" cy="13.5" r="1.2" fill="currentColor" stroke="none"></circle>
+          <path d="M9.5 17h5"></path>
+        </svg>
+      </div>
+      <div class="header__info">
+        <h1 class="header__title">Chatbot MAI</h1>
+        <p class="header__status"><span class="header__dot"></span>Asistente de trámites catastrales</p>
+      </div>
+      <button class="header__menu" id="btn-menu" type="button" aria-label="Ver el menú de trámites">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+        <span>Menú</span>
+      </button>
+    </header>
 
-  <div class="chat-container" id="chat"></div>
+    <main class="chat" id="chat" role="log" aria-live="polite" aria-label="Conversación"></main>
 
-  <div class="input-container">
-    <input id="input" placeholder="Escribe un mensaje...">
-    <button onclick="send()">➤</button>
+    <footer class="composer">
+      <form class="composer__form" id="form" autocomplete="off">
+        <label class="sr-only" for="input">Escribe tu mensaje</label>
+        <textarea class="composer__input" id="input" rows="1"
+                  placeholder="Escribe tu pregunta..." maxlength="1000"></textarea>
+        <button class="composer__send" id="send-btn" type="submit" aria-label="Enviar mensaje">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 12l16-8-6 16-2.5-6.5L4 12z"></path>
+          </svg>
+        </button>
+      </form>
+    </footer>
   </div>
 
   <script>
-    async function send() {
-      let msg = document.getElementById("input").value;
-      if (!msg) return;
-      addMessage(msg, "user");
-      document.getElementById("input").value = "";
+    (function () {
+      "use strict";
 
-      let res = await fetch("/chat", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({message: msg})
-      });
-      let data = await res.json();
-      addMessage(data.response, "bot");
-    }
+      const chat = document.getElementById("chat");
+      const input = document.getElementById("input");
+      const form = document.getElementById("form");
+      const sendBtn = document.getElementById("send-btn");
 
-    function addMessage(text, role) {
-      let chat = document.getElementById("chat");
-      let bubble = document.createElement("div");
-      bubble.className = "bubble " + role;
-      bubble.innerHTML = text + `<div class="timestamp">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>`;
-      chat.appendChild(bubble);
-      chat.scrollTop = chat.scrollHeight;
-    }
+      const ICONO_BOT =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" ' +
+        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<rect x="4" y="8" width="16" height="12" rx="3"></rect>' +
+        '<path d="M12 8V4"></path>' +
+        '<circle cx="9" cy="13.5" r="1.2" fill="#fff" stroke="none"></circle>' +
+        '<circle cx="15" cy="13.5" r="1.2" fill="#fff" stroke="none"></circle>' +
+        '<path d="M9.5 17h5"></path></svg>';
 
-    // Mensaje de bienvenida al cargar la página
-    window.onload = function() {
-      addMessage("¡Hola! Soy Chatbot MAI. ¿En qué puedo ayudarte hoy?", "bot");
-    };
+      // Evita que un doble clic o un Enter repetido disparen dos peticiones.
+      let enviando = false;
 
-    // Enviar mensaje al presionar Enter
-    document.getElementById("input").addEventListener("keypress", function(event) {
-      if (event.key === "Enter") {
-        event.preventDefault(); // evita salto de línea
-        send();
+      /* Escapa el texto antes de insertarlo como HTML. Sin esto, un mensaje
+         como <img src=x onerror=alert(1)> se ejecutaria en el navegador. */
+      function escapeHTML(texto) {
+        const div = document.createElement("div");
+        div.textContent = texto == null ? "" : String(texto);
+        return div.innerHTML;
       }
-    });
+
+      function hora() {
+        return new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+      }
+
+      /* Si el mensaje cabe en pantalla, baja hasta el final. Si es mas alto que
+         el area visible (los tramites tienen hasta 8 pasos), alinea su inicio
+         arriba para poder leerlo desde la primera linea. */
+      function irAlNuevo(elemento) {
+        if (!elemento) {
+          chat.scrollTop = chat.scrollHeight;
+          return;
+        }
+        const alturaVisible = chat.clientHeight;
+        const alturaElemento = elemento.getBoundingClientRect().height;
+        chat.scrollTop = alturaElemento > alturaVisible - 40
+          ? elemento.offsetTop - 12
+          : chat.scrollHeight;
+      }
+
+      function addMessage(texto, rol, opciones) {
+        const fila = document.createElement("div");
+        fila.className = "msg msg--" + rol;
+
+        if (rol !== "user") {
+          const avatar = document.createElement("div");
+          avatar.className = "msg__avatar";
+          avatar.setAttribute("aria-hidden", "true");
+          avatar.innerHTML = ICONO_BOT;
+          fila.appendChild(avatar);
+        }
+
+        const col = document.createElement("div");
+        col.className = "msg__col";
+
+        const burbuja = document.createElement("div");
+        burbuja.className = "msg__bubble";
+        // Las respuestas traen '\n' para separar los pasos; en HTML el salto
+        // de linea no se renderiza, por eso se convierte a <br>.
+        burbuja.innerHTML = escapeHTML(texto).replace(/\n/g, "<br>");
+
+        const tiempo = document.createElement("div");
+        tiempo.className = "msg__time";
+        tiempo.textContent = hora();
+
+        col.appendChild(burbuja);
+        col.appendChild(tiempo);
+        fila.appendChild(col);
+        chat.appendChild(fila);
+
+        if (Array.isArray(opciones) && opciones.length) {
+          const grupo = document.createElement("div");
+          grupo.className = "opciones";
+          opciones.forEach(function (etiqueta) {
+            const boton = document.createElement("button");
+            boton.type = "button";
+            boton.className = "opcion";
+            // textContent, no innerHTML: la etiqueta se pinta como texto.
+            boton.textContent = etiqueta;
+            boton.addEventListener("click", function () {
+              enviar(etiqueta);
+            });
+            grupo.appendChild(boton);
+          });
+          chat.appendChild(grupo);
+        }
+
+        irAlNuevo(fila);
+        return fila;
+      }
+
+      function mostrarEscribiendo() {
+        const fila = document.createElement("div");
+        fila.className = "msg msg--bot";
+        fila.innerHTML =
+          '<div class="msg__avatar" aria-hidden="true">' + ICONO_BOT + "</div>" +
+          '<div class="msg__col"><div class="msg__bubble">' +
+          '<div class="typing" aria-label="Escribiendo"><span></span><span></span><span></span></div>' +
+          "</div></div>";
+        chat.appendChild(fila);
+        chat.scrollTop = chat.scrollHeight;
+        return fila;
+      }
+
+      function habilitar(activo) {
+        sendBtn.disabled = !activo;
+        input.disabled = !activo;
+      }
+
+      function ajustarAlto() {
+        input.style.height = "auto";
+        input.style.height = Math.min(input.scrollHeight, 120) + "px";
+      }
+
+      async function enviar(mensaje) {
+        const texto = (mensaje || "").trim();
+        if (!texto || enviando) return;
+
+        enviando = true;
+        addMessage(texto, "user");
+        habilitar(false);
+        const escribiendo = mostrarEscribiendo();
+
+        try {
+          const res = await fetch("/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: texto })
+          });
+          const datos = await res.json().catch(function () { return {}; });
+          escribiendo.remove();
+
+          if (!res.ok) {
+            addMessage(datos.error || "Ocurrió un error en el servidor. Intenta de nuevo.", "error");
+          } else {
+            addMessage(datos.response, "bot", datos.options);
+          }
+        } catch (err) {
+          escribiendo.remove();
+          addMessage(
+            "No se pudo conectar con el servidor. Revisa tu conexión e intenta de nuevo.",
+            "error"
+          );
+        } finally {
+          enviando = false;
+          habilitar(true);
+          ajustarAlto();
+          input.focus();
+        }
+      }
+
+      form.addEventListener("submit", function (evento) {
+        evento.preventDefault();
+        const texto = input.value;
+        input.value = "";
+        ajustarAlto();
+        enviar(texto);
+      });
+
+      // Enter envia; Shift+Enter hace salto de linea.
+      input.addEventListener("keydown", function (evento) {
+        if (evento.key === "Enter" && !evento.shiftKey) {
+          evento.preventDefault();
+          form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event("submit"));
+        }
+      });
+
+      input.addEventListener("input", ajustarAlto);
+
+      document.getElementById("btn-menu").addEventListener("click", function () {
+        enviar("Ver el menú");
+      });
+
+      addMessage(
+        "¡Hola! Soy Chatbot MAI, tu asistente de trámites catastrales.\n\n" +
+        "Puedo explicarte los pasos de un trámite, o levantar un reporte si " +
+        "tienes un problema que necesite atención de un agente.",
+        "bot",
+        ["Ver el menú", "Reportar un problema"]
+      );
+      input.focus();
+    })();
   </script>
 </body>
 </html>

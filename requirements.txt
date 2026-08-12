@@ -1,0 +1,14 @@
+# Requiere Python 3.12 (TensorFlow todavia no publica wheels para 3.13/3.14).
+# Instalacion:  py -3.12 -m venv venv
+#               venv\Scripts\activate
+#               pip install -r requirements.txt
+
+Flask>=3.0,<4.0
+tensorflow>=2.16,<2.21
+nltk>=3.9,<4.0
+numpy>=1.26,<3.0
+
+# Google Sheets: se usa solo si configuras GOOGLE_CREDENTIALS_PATH.
+# gspread moderno usa google-auth; ya no hace falta el oauth2client obsoleto.
+gspread>=6.0,<7.0
+google-auth>=2.30,<3.0
